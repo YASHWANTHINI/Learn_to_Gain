@@ -12,10 +12,10 @@
 ---
 ## [Day_2]
 ---
-#### -> Learn about _what is Rooting and custom ROM,OEM,ODM_. 
-#### -> Learn about _what is Stock Android, Android Go, Android One_.
+#### -> Learn about _what is Rooting and custom ROM,OEM,ODM ?_. 
+#### -> Learn about _what is Stock Android, Android Go, Android One ?_.
 #### -> Learn about _M1- Improper Platform Usage in OWASP_.
-#### -> Learn about _What is Activities, Intent, KeyChain in Android_.
+#### -> Learn about _What is Activities, Intent, KeyChain in Android ?_.
 ---
 ## [Day_3]
 ---
@@ -25,7 +25,7 @@
 ---
 ## [Day_4]
 ---
-#### -> Learn about _What is Bugtroid_.
+#### -> Learn about _What is Bugtroid ?_.
 #### -> Learn about _Malware analysis_.
 #### -> Learn about _Ghost Framework and Phonesploit_.
 #### -> Submitted my second pull request__.
