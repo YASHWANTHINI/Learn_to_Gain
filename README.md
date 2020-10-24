@@ -23,3 +23,10 @@
 #### -> Forked Hactoberfest2020 repository from Rakaesh Elamaran.
 #### -> Submitted my first pull request and committed successfully__.
 ---
+## [Day_4]
+---
+#### -> Learn about _What is Bugtroid_.
+#### -> Learn about _Malware analysis_.
+#### -> Learn about _Ghost Framework and Phonesploit_.
+#### -> Submitted my second pull request__.
+---
