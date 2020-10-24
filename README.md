@@ -17,3 +17,9 @@
 #### -> Learn about _M1- Improper Platform Usage in OWASP_.
 #### -> Learn about _What is Activities, Intent, KeyChain in Android_.
 ---
+## [Day_3]
+---
+#### -> Learn about _Hacktoberfest 2020_.
+#### -> Forked Hactoberfest2020 repository from Rakaesh Elamaran.
+#### -> Submitted my first pull request and committed successfully__.
+---
