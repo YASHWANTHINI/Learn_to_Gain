@@ -15,7 +15,7 @@
 #### -> Learn about _what is Rooting and custom ROM,OEM,ODM ?_. 
 #### -> Learn about _what is Stock Android, Android Go, Android One ?_.
 #### -> Learn about _M1- Improper Platform Usage in OWASP_.
-#### -> Learn about _What is Activities, Intent, KeyChain in Android ?_.
+#### -> Learn about _[What is Activities, Intent, KeyChain in Android ?](https://developer.android.com/guide/components/activities/intro-activities)_.
 ---
 ## [Day_3]
 ---
@@ -33,6 +33,16 @@
 ## [Day_5]
 ---
 #### -> Learn about _What is Enterprise Architecture ?_.
-#### -> Learn about _AWS Cloud Products_.
-#### -> Submitted my third pull request__.
+#### -> Learn about _[AWS Cloud Products](https://aws.amazon.com/products/)_.
+#### -> Submitted my third pull request_.
+#### -> Started learning _[Android Mobile Certification by Google](https://googlepartnertraining.fathomed.com/login)_.
+---
+## [Day_6]
+---
+#### -> Learn about _What is Android development lifecycle?_.
+#### -> Learn about _What is Services, content providers in Android?_.
+#### -> Submitted _my fouth pull request and completed Hactoberfest2020 challenge_.
+#### -> Learn about _Android Debug Bridge(ADB)_.
+#### -> Learn about _[How to install ADB in Kali Linux](https://www.youtube.com/watch?v=IsQXyFHNGl0)_.
+
 ---
