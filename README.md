@@ -44,5 +44,20 @@
 #### -> Submitted _my fouth pull request and completed Hactoberfest2020 challenge_.
 #### -> Learn about _Android Debug Bridge(ADB)_.
 #### -> Learn about _[How to install ADB in Kali Linux](https://www.youtube.com/watch?v=IsQXyFHNGl0)_.
-
+---
+## [Day_7]
+---
+#### -> Solved SQL Challenges in Hackerrank.
+---
+## [Day_8]
+---
+#### -> Completed _AWS Security fundamentals_ course from AWS training and certification.
+---
+## [Day_9]
+---
+#### -> Completed _IBM DataScience foundational course from cognitiveclasses.ai_.
+---
+## [Day_10]
+---
+#### -> Published blogs about What is _SQL Statements and Fingerprint Forensic Science in Techiepedia Medium_. 
 ---
