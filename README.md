@@ -61,3 +61,11 @@
 ---
 #### -> Published blogs about What is _SQL Statements and Fingerprint Forensic Science in Techiepedia Medium_. 
 ---
+## [Day_11]
+---
+#### -> Request for _GitHub Student Pack_ was approved.
+---
+## [Day_12]
+---
+#### -> Learned about _What is Node JS and frameworks_.
+---
