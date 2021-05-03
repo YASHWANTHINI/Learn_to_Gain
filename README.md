@@ -1,6 +1,7 @@
 # Learn_to_Gain
 ***
 ##### Updating my daily learning to gain some stuffs.
+[Medium](yeshwanthini-s.medium.com)
 
 ***
 ## [Day_1]
