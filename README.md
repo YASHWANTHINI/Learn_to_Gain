@@ -81,7 +81,7 @@
 ---
 #### -> Published blog about [Node.JS](https://medium.com/techiepedia/just-about-node-js-917a94131cf8) and [MERN](https://medium.com/techiepedia/what-exactly-a-mern-stack-is-60c304bffbe4) in Medium.
 ---
-## [Day_22 to Day_25] 
+## [Day_22 to Day_30] 
 ---
 #### -> Prepared blogs related to _JS and ASP.NET Core MVC Proj in VS code_.
 #### -> Published blogs [ASP.NET CORE MVC](https://medium.com/techiepedia/how-to-create-run-asp-net-core-mvc-project-with-without-entity-framework-in-visual-studio-code-b3569a38b368) and [JS in Web applications](https://medium.com/techiepedia/how-javascript-helps-to-develop-modern-web-applications-52ce4599a4ea) .
