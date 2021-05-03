@@ -1,4 +1,6 @@
-# Learn_to_Gain
+<center>
+     <h1>Learn_to_Gain</h1>
+</center>
 ***
 ##### Updating my daily learning to gain some stuffs.
 [Medium](https://yeshwanthini-s.medium.com/)
