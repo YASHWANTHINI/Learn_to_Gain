@@ -1,4 +1,33 @@
-#### ES6 JS Snippet
+#### ES6 JS
+```
+ECMAScript 6 is also known as ES6 and ECMAScript 2015.
+```
+| Features in ES6|
+|---|
+| The let keyword |
+| The const keyword |
+| Arrow Functions |
+| JavaScript For/of |
+| JavaScript Classes |
+| JavaScript Promises |
+| JavaScript Symbol |
+| Default Parameters |
+| Function Rest Parameter |
+| Array.find() |
+| Array.findIndex() |
+| New Math Methods |
+| New Number Properties |
+| New Number Methods |
+| New Global Methods |
+| JavaScript Modules |
+
+Above features may not supported by all the browsers. To overcome this we use a preprocessor called <b>Babel</b>.
+#### Babel 
+```
+  It is a prpeocessor for JS.ECMAScript used for converting ES6/ES6+ codes to backward JS compatible versions (run by old browsers). 
+```
+
+
 
 #### 1. Arrow Function
 ```
