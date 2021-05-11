@@ -27,8 +27,88 @@ Above features may not supported by all the browsers. To overcome this we use a 
   It is a prpeocessor for JS.ECMAScript used for converting ES6/ES6+ codes to backward JS compatible versions (run by old browsers). 
 ```
 
+#### Variable creation using let and const keyword
+```
+let - replacement of var keyword.
 
+let usrName = "yash";
+let usrcount = "100";
 
+const - used to create for constant values(cant be updated after declaring).
+const connectionString = "https://github.io";
+
+//hoisting
+console.log(greeting); // cannot access 'greeting' before initialization
+let greeting = "Hello";
+
+Its not a ReferenceError, the engine knows about greeting but doesn't allow to use it before its initialized. 
+The JS engine doesn't allow us to access the variables declared with let and const before they are declared. This is called Temporal Dead Zone.
+```
+
+#### Hoisting
+-> The JavaScript engine before parses the code before executing and during the parsing phase it shifts all the variable declaration to the top of the scope. This behavior of the JS engine is called hoisting.
+-> In terms of variables and constants, keyword var is hoisted and let and const does not allow hoisting.
+```
+//valid code
+// program to display value
+var a;
+a = 5;
+console.log(a); // 5
+```
+Since JavaScript, initializations are not hoisted.
+<b>Variable Hoisting</b>
+```
+console.log(a); //undefined
+var a = 5;
+
+var a;
+console.log(a); //undefined
+a = 5;
+```
+<b>Function Hoisting</b>
+when the variable is used inside the function, the variable is hoisted only to the top of the function.
+```
+var a = 4;
+function greet() {
+    b = 'hello';
+    console.log(b); // hello
+    var b;
+}
+greet(); 
+console.log(b);// Uncaught ReferenceError: b is not defined
+```
+Because b is declared and initialized within a function so it is a local var and console.log gets executed. Due to this it cant be consider as global variable so error is encountered.
+<i>distinction between variable hoisting and function hoisting is that a var variable is hoisted and then auto-initialized to undefined whereas a function declaration is hoisted and initialized to its function value.</i>
+Function hoisting only applies to formal function declarations and not to function expression assignments.
+```
+greeting(); // TypeError: greeting is not a function
+
+console.log(greeting); // undefined
+
+var greeting = function greeting() {
+  console.log("Hello!");
+};
+```
+Above, greeting variable was hoisted but it was not initialized with the function reference. The engine throws us a TypeError: greeting is not a function and not ReferenceError: greeting is not defined. The function expression assignments behave like variable hoisting.
+
+#### How let and const are not hoisted?
+```
+//variable 
+console.log(typeof iDontExist); // undefined
+console.log(typeof greeting); // cannot access 'greeting' before initialization
+let greeting = "hello";
+```
+If the greeting variable was not hoisted, we would expect typeof greeting to be undefined similar to typeof iDontExist. This proves that the JS engine knows about our greeting variable but still doesn't allow us to access it just yet due to Temporal Dead Zone.
+```
+//function
+let x = 'outer value';
+console.log(x); // outer value
+ {
+  console.log(x); // cannot access 'x' before initialization
+  let x = 'inner value'; // declaration ends TDZ for x
+ }
+ ```
+Accessing the variable x in the inner scope still causes the TDZ error. If the let x = 'inner value'; was not hoisted, it would have logged outer value.
 #### 1. Arrow Function
 ```
 An arrow function expression is an alternative way to declare a traditional function expression. But it has some difference between arrow function and traditional function.
