@@ -24,3 +24,10 @@ Wireframe - The designs you received are called wireframes. A wireframe is a sch
 <hr/>
 ##### npm
 npm is automatically installed into your local machine with Node.js. NPM is the world’s largest registry software. It is used widely by open source developers to share software. It acts as a package manager for Node JS. It manages dependencies 
+##### NoSQL Database
+| DBMS | Description | Example |
+|---|---|---|
+| Column Oriented | Organize data by fields (column) | Apache Cassandra, Apache HBASE|
+| Key-Value stores | stores data as a collection of key-value pairs in which a key serves as a unique identifier | DynamoDB, redis |
+| Document | Key-value method but stores data in document structure specified with schema (JSON like) | CouchDB, mongoDB |
+| Graph | uses graph structure for semantic queries having nodes, edges, properties for data | Neo4j |
