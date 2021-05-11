@@ -1,6 +1,7 @@
 # Learn_to_Gain
 ***
-##### Updating my daily learning to gain some stuffs.
+##### Updating my daily learning apart from 100 days learning in full stack dev(learning res are updated in appropriate folders itself).
+
 [Medium](https://yeshwanthini-s.medium.com/)
 
 ***
@@ -56,4 +57,3 @@
 #### -> Prepared blogs related to _JS and ASP.NET Core MVC Proj in VS code_.
 #### -> Published blogs [ASP.NET CORE MVC](https://medium.com/techiepedia/how-to-create-run-asp-net-core-mvc-project-with-without-entity-framework-in-visual-studio-code-b3569a38b368) and [JS in Web applications](https://medium.com/techiepedia/how-javascript-helps-to-develop-modern-web-applications-52ce4599a4ea) .
 ---
--> no daily updates are displayed after day 15 learning resources are updated in the specific folder itself.
