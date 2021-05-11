@@ -24,8 +24,16 @@ ECMAScript 6 is also known as ES6 and ECMAScript 2015.
 Above features may not supported by all the browsers. To overcome this we use a preprocessor called <b>Babel</b>.
 #### Babel 
 ```
-  It is a prpeocessor for JS.ECMAScript used for converting ES6/ES6+ codes to backward JS compatible versions (run by old browsers). 
+  It is a prpeocessor for JS-ECMAScript used for converting ES6/ES6+ codes to backward JS compatible versions (run by old browsers). 
 ```
+#### [Template String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+Template literals are string literals allowing embedded expressions within it. To create we use back tick and expressions are embedded by wrapping them inside ${}. 
+Syntax: `${expression}`
+| JS | ES6 |
+|---|---|
+|const name="john"; const greetings = "hello" + name; | const name= "john"; const greetings= `Hello ${name}`; |
+| const name =john"; function getname(name) { return name; } const greetings = "Hello+ '' + getname(name); | const name =john"; function getname(name) { return ${name}; } const greetings =`Hello ${getname(name)}`; |
+| console.log('string text line 1\n' + 'string text line 2'); | console.log(`string text line 1 string text line 2`); |
 
 #### Variable creation using let and const keyword
 ```
