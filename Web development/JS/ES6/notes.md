@@ -1,25 +1,9 @@
 #### ES6 JS
 ```
 ECMAScript 6 is also known as ES6 and ECMAScript 2015.
+
 ```
-| Features in ES6|
-|---|
-| The let keyword |
-| The const keyword |
-| Arrow Functions |
-| JavaScript For/of |
-| JavaScript Classes |
-| JavaScript Promises |
-| JavaScript Symbol |
-| Default Parameters |
-| Function Rest Parameter |
-| Array.find() |
-| Array.findIndex() |
-| New Math Methods |
-| New Number Properties |
-| New Number Methods |
-| New Global Methods |
-| JavaScript Modules |
+[Features in ES6](http://es6-features.org/)
 
 Above features may not supported by all the browsers. To overcome this we use a preprocessor called <b>Babel</b>.
 #### Babel 
@@ -117,23 +101,15 @@ console.log(x); // outer value
  }
  ```
 Accessing the variable x in the inner scope still causes the TDZ error. If the let x = 'inner value'; was not hoisted, it would have logged outer value.
-#### 1. Arrow Function
-```
-An arrow function expression is an alternative way to declare a traditional function expression. But it has some difference between arrow function and traditional function.
-Traditional functions have ‘this’ keyword but arrow functions have no ‘this’ keyword.
-Traditional functions have ‘arguments’ but arrow functions have no ‘arguments’.
-Traditional functions can use for ‘constructors’ but arrow functions can not use for ‘constructors’.
-If we use an arrow function, we should remove the function keyword and set arrow => between the argument and opening body bracket. We can store the function in a variable. If an arrow function writes in one line then we can remove body brackets and the return keyword. If the arrow function has only one argument, then we can remove argument parentheses.
-=> Code Examples:
-const sum = (a, b)=> {
-  return a+b;
-} 
-console.log(sum(5, 7)) // output, 12
-const multiply = (a, b) => a*b 
-console.log(multiply(5, 7)) // output, 35
-const double = a => a*2
-console.log(double(5)) // output, 10
-```
+#### Arrow Function
+An arrow function expression is an alternative way to declare a traditional function expression. (=> is called as fat arrow)
+|Traditional | Arrow |
+|---|---|
+| have ‘this’ keyword | have no ‘this’ keyword |
+| use function | use const |
+| function greetings(name){ return ("hello" +  name); } console.log(greetings('yash')); | const greetings = (name) => {return `Hello ${name}`; } console.log(greetings('yash')); |
+
+If we have only one argumets then we can write as `const greetings = name => `Hello ${name}` ` that is no need of barckets for parameters and single function body has no need of curly braces and return statements.
 
 #### 2. Default parameters
 ```
@@ -158,18 +134,73 @@ Code Examples:
   console.log(5+7); 
 })(); // output, 12
 ```
-#### 4. Spread operator
-```
-Spread operator(…) or three dots are the es6 Features. You can concat array, object, and string by using the spread operator. It is used for array expression or string to be expanded or an object expression to be expanded in places. You can copy all the elements of an array, all the properties of an object, and all iterable of the string.
-Code Examples:
-const numbers = [1, 8, 5, 15, 10];
-consloe.log([...numbers]) // output, [1, 8, 5, 15, 10]
-consloe.log([...numbers, 65]) // output, [1, 8, 5, 15, 10, 65]
-const user = {name: 'Shuvo'}
-consloe.log({...user}) // output, {name: 'Shuvo'}
-consloe.log({...user, id: '1'}) // output, {name: 'Shuvo', id: '1'}
-```
+#### Rest operator
+ Rest (...) allows us to represent an indefinite number of arguments as an array. With the help of a rest parameter a function can be called with any number of arguments, no matter how it was defined.
 
+| Traditional | Rest operator |
+|---|---|
+|const arsum = (num1,num2) => console.log(num1 + num2); arsum(1,2,4,4);| const arsum = (...args) => { let sum = 0; for(let i = 0; i<args.length; i++;) {sum += args[i];} console.log(sum);} arsum(1,2,4,4);|   
+| 3 (remaining elements are ignored due to arguments passed) | 11 |
+
+```
+const arsum = (num1,num2, ...args) => {
+let sum = num1 + num2 ;
+for (let i=0; i<args.length; i++){
+      sum+= args[i];
+  }
+  console.log(sum); // 11
+}
+```
+In the above, sum = num1+num2 then sum has 3 as a value then in for loop i = 0. Here i = 0 means args[0] = 4 and not 1. So if you are using rest operator along with variables(num1,num2) in parameter then have to keep rest at the end to avoid error(Uncaught Syntax Error). Because its job is to collect all the remaining arguments into an array. 
+
+#### Spread operator
+Spread operator(…) can concat array, object, and string . It is used for array expression or string to be expanded or an object expression to be expanded in places and copy all the elements of an array, all the properties of an object, and all iterable of the string.
+To overcome referrence issues.
+```
+let ar1 = [1,2,3,4,5];
+let ar2 = ar1;
+ar1.push(6);
+console.log(ar1); // [1,2,3,4,5,6]
+console.log(ar2); // [1,2,3,4,5,6]
+
+//using spread operator
+let ar1 = [1,2,3,4,5];
+let ar2 = [...ar1];
+ar1.push(6);
+console.log(ar1);//[1,2,3,4,5,6]
+console.log(ar2); //[1,2,3,4,5]
+```
+To concat arr, obj
+```
+let ar1 = [1,2,3,4,5];
+let ar2 = [6,7,8,9];
+let ar3 = [...ar1,...ar2]; // let ar3 = ar1.concat(ar2); and can concat multiple array
+console.log(ar3); // [1,2,3,4,5,6,7,8,9]
+let ar3 = [0, ...ar2,...ar1, 10]; // let ar3 = ar1.concat(ar2); and can concat multiple array
+console.log(ar3); // [0,6,7,8,9,1,2,3,4,5,10]
+
+let user = {name: 'Yash'}
+let id = {uid =1}
+
+let conobj = {...name,...id} // {name: 'Yash',uid =1}
+
+```
+For Strings 
+```
+var params = [ "hello", true, 7 ]
+var other = [ 1, 2, ...params ] // [ 1, 2, "hello", true, 7 ]
+
+function f (x, y, ...a) {
+    return (x + y) * a.length
+}
+f(1, 2, ...params) === 9
+
+var str = "foo"
+var chars = [ ...str ] // [ "f", "o", "o" ] str gets converted to arr because it expandes the str to char.
+
+var str = [ "hello" ,2 ];
+var other = [  ...str ]; // [  "hello" ,2 ]
+```
 #### 5. isNaN() Method
 ```
 By calling this method isNan() we can check whether the value is a number or not. The method returns a Boolean value (true of false).If the method returns true , it means, the value is not a number 
