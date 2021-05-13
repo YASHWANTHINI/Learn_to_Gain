@@ -20,8 +20,10 @@ Syntax: `${expression}`
 | console.log('string text line 1\n' + 'string text line 2'); | console.log(`string text line 1 string text line 2`); |
 
 #### Variable creation using let and const keyword
-```
 let - replacement of var keyword.
+```
+let arr = [1,2,3]; //arr use []
+let obj = {fName:'yash', lName:'wa'}; //obj use {}
 
 let usrName = "yash";
 let usrcount = "100";
@@ -260,29 +262,71 @@ const number2 = 8;
 const largest = number1 > number2 ? number1: number2;
 console.log(largest) // output, 8
 ```
-#### 10. Destructuring
-```
-There are two Destructuring, Array and Object.
-Object Destructuring: We can destructure object properties in variable and the variable name and property name should be the same. We can destructure any properties in an object. In object Destructuring, we should not maintain any order which property was first or last or any position. In object destructuring, we should declare a variable with curly braces { }. In curly braces, we should write those properties that we want to destructure from an object. Then we should use the assignment operator = and on the right side, we use that object.
-Array Destructuring: We can destructure array elements in variable and the variable name and the element don't need to be the same name. In array destructuring, we should maintain the order which element was first or last or any position. In array destructuring, we should declare a variable with an array symbol[]. In the array symbol, we should write elements by an order which element was first or last or any position. If we want the second element and don’t want the first element we can use only a comma. Then we should use the assignment operator = and on the right side, we use that array.
-** In Array and object destructuring we can use a spread operator or three dots to destructuring another array of elements in an array variable and another object properties in an object variable.
-Code Examples:
-// array destructuring
-cosnt [num1, num2] = [5, 10];
-console.log(num1, num2) // output, 5, 10
-cosnt [, num2] = [5, 10];
-console.log(num2) // output, 10
-cosnt [num1, ...other] = [5, 10, 15];
-console.log(num1, other) // output, 5, [10, 15]
+####  Destructuring
+It allows to unpack array/object into bunch of variables to make working with arrays and object easier.There are two Destructuring, <b>Array and Object</b>. 
 
+<b>Array Destructuring</b>: We can destructure array elements in variable.The variable name and the element don't need to be the same name. In array destructuring, we should declare a variable with an array symbol[].
+```
+const name ="Yashwa Meena Rajeshwari";
+const dest = name.split(' '); //split and stores as array in dest
+let [fName, mName,lName] = dest; //instead of let fName = dest[0];
+//output : ["Yashwa","Meena","Rajeshwari"]
+```
+<b> If we want the second element and don’t want the any element we can use only a comma.</b>
+```
+let [,lName] = dest;
+//dest will store lastname and ignores first name.
+
+cosnt [num1, ...other] = [5, 10, 15];
+console.log(num1, other) // 5, [10, 15]
+```
+In array destructuring, we should maintain the order which element was first or last or any position.
+```
+let [lName,fName] = dest; // lname has Yashwa and fName ha Meera as values
+```
+** In Array and object destructuring we can use a spread operator or three dots to destructuring another array of elements in an array variable and another object properties in an object variable.
+
+<b>Object Destructuring</b>: We can destructure object properties in variable.The variable name and property name should be the same. We can destructure any properties in an object due to this, we should not maintain any order which property was first or last or any position (var names are mapped to the keys).
+In object destructuring, we should declare a variable with curly braces { }. In curly braces, we should write those properties that we want to destructure from an object. Then we should use the assignment operator = and on the right side, we use that object.
+
+```
 // object destructuring
-cosnt {num1, num2} = {num1:5, num2:10};
-console.log(num1, num2) // output, 5, 10
-cosnt {num2, num1} = {num1:5, num2:10};
-console.log(num2, num1) // output, 10, 5
-cosnt {num2} = {num1:5, num2:10};
-console.log(num2) // output, 10
+const person{
+    fName:'Yashwa',
+    mName:'Meena',
+    lName:'Rajeshwari'
+}
+let {fName,lName}=person; //variable name and property name should be the same so should not maintain any order which property was first or last or any position.
+
+
 cosnt {num1, ...other} = {num1:5, num2:10, num3: 56};
 console.log(num1, other) // output, 5, {num2:10, num3: 56}
+
+//creating object using destructures
+let fName = 'Yashwa';
+let mName = 'Meena';
+let lName = 'Rajeshwari';
+
+const personObj = {
+fName:fName,
+mName:mName,
+lName:lName
+} // key can have different name but value shuld be same as let var name. eg: firstName:fName
+
+console.log(personObj); // {fName:"Yashwa", mName:"Meena", lName:"Rajeshwari"}
+
+//Another way
+let fName = 'Yashwa';
+let mName = 'Meena';
+let lName = 'Rajeshwari';
+
+const personObj = {
+fName,
+mName,
+lName
+} // it first create key and then value to store accordingly.
+
+console.log(personObj); // {fName:"Yashwa", mName:"Meena", lName:"Rajeshwari"}
+
 ```
 
