@@ -56,3 +56,9 @@ Framework vs Libraries
 ```
 ![image](https://user-images.githubusercontent.com/58984578/117767138-256c9b80-b24e-11eb-878c-4cfe4439ff2a.png)
 
+#### Cheat Sheet
+ [CS1](https://oscarotero.com/jquery/)
+ 
+ [CS2](https://htmlcheatsheet.com/jquery/)
+
+
