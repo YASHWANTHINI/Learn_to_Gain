@@ -49,14 +49,14 @@ var a;
 a = 5;
 console.log(a); // 5
 ```
-Since JavaScript, initializations are not hoisted.
+Only declarations are hoisted and not initializations.
 <b>Variable Hoisting</b>
 ```
 console.log(a); //undefined
 var a = 5;
 
 var a;
-console.log(a); //undefined
+console.log(a); //undefined during hoisting a has undefined as value. JS is interpreted language.
 a = 5;
 ```
 <b>Function Hoisting</b>
@@ -73,7 +73,16 @@ console.log(b);// Uncaught ReferenceError: b is not defined
 ```
 Because b is declared and initialized within a function so it is a local var and console.log gets executed. Due to this it cant be consider as global variable so error is encountered.
 <i>distinction between variable hoisting and function hoisting is that a var variable is hoisted and then auto-initialized to undefined whereas a function declaration is hoisted and initialized to its function value.</i>
-Function hoisting only applies to formal function declarations and not to function expression assignments.
+Function hoisting only applies to formal function declarations and not to function expression assignments.Function expressions are functions which are assigned to a variable explicitly.
+```
+var addition = sum()
+var n1 = 4;
+var n2 = 5;
+var sum = function(n1,n2){
+   return n1+n2;
+};
+```
+In function expressions, these functions are assigned to the variable at runtime. But here ‘sum’ is a variable and thus gets hoisted and is assigned a value of undefined. Therefore during runtime, sum already has a value undefined and hence we get the error that it is not a function. If you use this with let, the error would be “ ReferenceError: sum is not defined”.
 ```
 greeting(); // TypeError: greeting is not a function
 
@@ -84,6 +93,9 @@ var greeting = function greeting() {
 };
 ```
 Above, greeting variable was hoisted but it was not initialized with the function reference. The engine throws us a TypeError: greeting is not a function and not ReferenceError: greeting is not defined. The function expression assignments behave like variable hoisting.
+
+<b>var</b>: Only the variable declarations are hoisted to the top of their current scope and assigned a value undefined. Using them before declaration would just return undefined.
+<b>let and const</b>: These too are hoisted, however unlike var they are not initialized with any value. Using them before declaration would throw a reference error.
 
 #### How let and const are not hoisted?
 ```
@@ -113,7 +125,7 @@ An arrow function expression is an alternative way to declare a traditional func
 
 If we have only one argumets then we can write as `const greetings = name => `Hello ${name}` ` that is no need of barckets for parameters and single function body has no need of curly braces and return statements.
 
-#### 2. Default parameters
+#### Default parameters
 ```
 You can use default parameters in a function after es6. If never pass the parameter then you can set a default parameter. The default parameter will set if you pass undefined or you didn't pass the parameter otherwise, it is not set.
 Code Examples:
@@ -127,7 +139,7 @@ function add(a, b=5){
 console.log(add(7, 4)) // output, 11
 ```
 
-#### 3. IIFE Function
+#### IIFE Function
 ```
 IIFE - Immediately Invoked Function Expression
 If we defined a function and we want the function will call Immediately, then we can use the IIFE function. IIFE function is an anonymous function and the function will call Immediately. We can’t call the IIFE function another time.
@@ -203,7 +215,7 @@ var chars = [ ...str ] // [ "f", "o", "o" ] str gets converted to arr because it
 var str = [ "hello" ,2 ];
 var other = [  ...str ]; // [  "hello" ,2 ]
 ```
-#### 5. isNaN() Method
+#### isNaN() Method
 ```
 By calling this method isNan() we can check whether the value is a number or not. The method returns a Boolean value (true of false).If the method returns true , it means, the value is not a number 
 Code Examples:
@@ -211,7 +223,7 @@ console.log(isNaN(12)); // output, false
 console.log(isNaN("false")); // output, true
 ```
 -- JavaScript has two types of data types. Primitive and Reference or Objects and Functions.
-#### 6. Primitive Values
+#### Primitive Values
 ```
 There are 7 Primitive data types. They are
 
@@ -229,7 +241,7 @@ console.log(typeof(true)) //output, "boolean"
 console.log(typeof(undefined)) //output, "undefined"
 console.log(typeof(null)) //output, "null"
 ```
-#### 7. Reference or Objects and Functions
+#### Reference or Objects and Functions
 ```
 Without primitive data types, javaScript’s other data types are reference data types. They are
 Object
@@ -242,7 +254,7 @@ console.log(typeof(() => 4+4)) //output, "function"
 console.log(typeof(/exp/)) //output, "object"
 ```
 
-#### 8. Double Equal(==) vs Triple Equal (===)
+#### Double Equal(==) vs Triple Equal (===)
 ```
 In javaScript two double equal compare the values. If the value is equal, return true. But triple equal compare the values and compare the data type. If the value is equal and the type is equal, then return true, otherwise, return false. We should use triple equal to compare and it is best practice.
 Code Examples:
@@ -253,7 +265,7 @@ console.log(1===true) // output, false
 console.log(0==false) // output, true
 console.log(0===false) // output, false
 ```
-#### 9. Ternary Operator
+#### Ternary Operator
 ```
 Ternary Operator, another way to conditional checking. This is the smallest way for condition. You can write one line condition by using the ternary operator. In ternary operator conditional checking using a question mark (?) and a colon (:).First of all, we write the condition, num>5 then we should use a question mark (?), then we wire the code if the condition is true, then we should use a colon (:), then we wire the code if the condition is false. We can use nested conditions in the ternary operator. The ternary operator should write code the condition is true and false.
 Code Examples:
