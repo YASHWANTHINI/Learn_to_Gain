@@ -19,7 +19,51 @@ Syntax: `${expression}`
 | const name =john"; function getname(name) { return name; } const greetings = "Hello+ '' + getname(name); | const name =john"; function getname(name) { return ${name}; } const greetings =`Hello ${getname(name)}`; |
 | console.log('string text line 1\n' + 'string text line 2'); | console.log(`string text line 1 string text line 2`); |
 
+#### Naming Convention
+JavaSript variable should be self-descriptive (can use camelCase) and are case-sensitive.
+<b>Boolean</b> are distinguished when we use prefixes like is, are, or has.
+```
+let isMarried = false;
+```
+For <b>functions</b>, use a verb as a prefix when declaring a function name. Examples of verbs are; post, push, add, fetch, get, etc. Using a verb makes the function self-descriptive. Functions and methods are also written in camelCase.
+```
+function getUser(firstName, lastName) {
+    return `${firstName} ${lastName}`;
+}
+```
+<b>Class</b> is declared with a PascalCase
+```
+class ZuriIntern {
+    constructor(name, track, course) {
+        this.name = name;
+        this.track = track;
+        this.course = course;
+    }
+}
+let TracyCodes = new ZuriIntern('Tracy Nuwagaba', 'Backend', 'NodeJS');
+```
+<b>Constants</b> are written in UPPERCASE
+```
+const HOURS_IN_A_DAY = 24; // separate with underscore
+```
+If you find an underscore( _ ) in front of a variable, function, or method in JavaScript, then it is intended to be <b>private</b>. That means the private variable or method should be used internally and not outside of the file.
+```
+let creditCard = {
+    _name: "Tracy",
+    get name() {
+        return this._name;
+    },
+    set name(value) {
+        this._name = value;
+    }
+};
+
+console.log(creditCard.name);
+// "Tracy"
+
+```
 #### Variable creation using let and const keyword
+JavaScript variables are case-sensitive.
 let - replacement of var keyword.
 ```
 let arr = [1,2,3]; //arr use []
