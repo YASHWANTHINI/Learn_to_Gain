@@ -47,4 +47,8 @@ Above passportID is consider as foreign key and UserID is primary key.
 
 ![image](https://user-images.githubusercontent.com/58984578/118349148-9a9ce100-b56c-11eb-8c55-f147ec3e933b.png)
 
+<b>Table</b>
+
+![image](https://user-images.githubusercontent.com/58984578/118349896-29136180-b571-11eb-96b1-f4d7d58e2ea8.png)
+
 
