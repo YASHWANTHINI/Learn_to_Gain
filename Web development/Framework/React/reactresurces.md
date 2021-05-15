@@ -2,7 +2,7 @@
    
    ![react ](https://user-images.githubusercontent.com/58984578/118350741-0df72080-b576-11eb-82a4-81758b665f1a.jpg)
    
-<b>Components</b> is a core of react.2 ways to create React components.
+<b>Components</b> is a core of react and there are 2 ways to create React components.
   * Using JS function - stateless function component
        Receive data and render it but not manage or track changes of that data.
 ```
