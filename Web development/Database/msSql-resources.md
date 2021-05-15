@@ -8,9 +8,9 @@
         5. [Document oriented DM (NoSQL)](https://www.mongodb.com/document-databases)
 
 #### Notes
-[Is MongoDB object oriented?](https://dzone.com/articles/why-mongodb) 
-[PostgreSQL vs MySQL](https://phoenixnap.com/kb/postgres-vs-mysql)
-[MS SQL Learn](https://www.sqlservertutorial.net/)
+[Is MongoDB object oriented?](https://dzone.com/articles/why-mongodb) <br/>
+[PostgreSQL vs MySQL](https://phoenixnap.com/kb/postgres-vs-mysql) <br/>
+[MS SQL Learn](https://www.sqlservertutorial.net/)  <br/>
 
 #### Relationship 
   1. one to one (one person has one aadhar)
@@ -41,3 +41,10 @@ Above passportID is consider as foreign key and UserID is primary key.
  | 2 | 13 |
  | 1 | 14 | 
  | 2 | 12 |
+
+#### MS SQL SERVER
+<b> Create New Database</b>
+
+![image](https://user-images.githubusercontent.com/58984578/118349148-9a9ce100-b56c-11eb-8c55-f147ec3e933b.png)
+
+
