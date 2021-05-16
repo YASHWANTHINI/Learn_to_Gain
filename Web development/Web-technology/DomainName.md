@@ -81,4 +81,13 @@ Advanced DNS solutions can help do some amazing things, including:
 * Data center and cloud migration: moving traffic in a controlled manner from on-premise resources to cloud resources
 * Internet traffic management: reducing network congestion and ensuring traffic flows to the appropriate resource in an optimal manner
 
-[DNS  in Application Layer](https://www.geeksforgeeks.org/domain-name-system-dns-in-application-layer/)
+[DNS in Application Layer](https://www.geeksforgeeks.org/domain-name-system-dns-in-application-layer/)
+
+#### Other
+Hostname - human-readable names.
+
+hostname + DNS domain = domain name. hostname and domain name are separated by dot.
+eg: www(subdomain) .opera (hostname). com(dns domain)
+
+if domain name is completely specified including top level domain of internet then domain name is called fully qualified domain name (FQDN). eg: en.wikipedia.com
+FQDN cannot exceed 255 characters. Each label name should between 1 and 63 character long. Domain name labels (series of labels concatenate with dot) contains ASCII letters, digitals and hypens.
