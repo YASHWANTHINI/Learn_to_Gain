@@ -80,3 +80,5 @@ Advanced DNS solutions can help do some amazing things, including:
 * Geographical routing: identifying the physical location of each user and ensuring they are routed to the nearest possible resource
 * Data center and cloud migration: moving traffic in a controlled manner from on-premise resources to cloud resources
 * Internet traffic management: reducing network congestion and ensuring traffic flows to the appropriate resource in an optimal manner
+
+[DNS  in Application Layer](https://www.geeksforgeeks.org/domain-name-system-dns-in-application-layer/)
