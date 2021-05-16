@@ -48,7 +48,7 @@ There are 13 sets of these root servers and they are strategically placed around
 
 5. <b>Authoritative name server</b> are responsible for knowing everything about domain which includes IP address. Finally, resolver will tell your computer IP address (t knw who requested ip for google.com) and then your computer can now retrieve google web page from dns. Also once resolver receives IP address, it will store it in its cache memory in case it receives another query for google.com to avoid go through all these steps. (Reverse IP - converting IP address to Domain name)
 
-![image](https://user-images.githubusercontent.com/58984578/118398674-50545680-b677-11eb-9cfd-6022c1f1cf66.png)
+![image](https://user-images.githubusercontent.com/58984578/118400162-1470bf80-b67e-11eb-99b1-d9903f367b4c.png)
 
 #### DNS query
 3 types of queries in the DNS system.
