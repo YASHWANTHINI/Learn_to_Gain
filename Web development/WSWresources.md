@@ -63,4 +63,13 @@ Framework vs Libraries
  
  [CS2](https://htmlcheatsheet.com/jquery/)
 
-
+#### Content Management System
+   It manages creation & modification of digital content. It includes web based publication, version control, indexing  and so. 
+   
+   [Types](https://www.nibusinessinfo.co.uk/content/different-types-content-management-systems)
+   
+   <b> Web Publishing</b> process of publishing original content on internet or any publishing prcess that based on web technology.
+   <b>Microsoft silverlight</b> development tool for creating, engaging, interactive user experience for web and mobile app powered by .NET
+   
+   [Sharepoint](https://support.microsoft.com/en-us/office/enterprise-content-management-in-sharepoint-930dd985-5bb9-447b-affd-86fcf690e994)
+   
