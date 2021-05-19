@@ -54,4 +54,78 @@ Above passportID is consider as foreign key and UserID is primary key.
 
 ![image](https://user-images.githubusercontent.com/58984578/118349896-29136180-b571-11eb-96b1-f4d7d58e2ea8.png)
 
+To create with query then right click on database name and select New Query and type command for sql query and save
+```
+comments(-- it is used for commenting)
+create table tablename (
+id int,
+name varchar(30)
+);
+
+-- using sp
+USE dbname
+GO
+CREATE TABLE tablename
+(
+       ID INT NOT NULL,
+   Name VARCHAR(50) not NULL
+);
+```
+To add column in existing table 
+```
+alter table tablename add age int ;
+// constrain as not null
+
+alter table tablename
+alter column age int not null
+```
+To drop column
+```
+alter table tablename 
+drop column age
+```
+To drop table
+```
+drop table tablename
+```
+To define primary key
+```
+alter table tablename
+add constraint PK_tablename primary key (id)
+```
+
+#### Composite Key
+combination of two or more key to uniquely identifies a record.
+first find columns for defining as composite and make sure those column are not null or use alter.
+```
+alter table tablename
+
+alter column stud-id int not null
+
+alter course_id int not null
+
+add constraint Compositekey primary key(stud-id,course_id);
+```
+
+#### Foreign key
+right click on the column name which you want to make as foreign key
+
+![image](https://user-images.githubusercontent.com/58984578/118764581-5c1e6380-b897-11eb-9054-b91038590696.png)
+
+Click Add and click on tables and columns specifications.
+
+![image](https://user-images.githubusercontent.com/58984578/118764677-8708b780-b897-11eb-971a-6903e50580f9.png)
+
+if needed change column, table details.
+
+![image](https://user-images.githubusercontent.com/58984578/118764784-b1f30b80-b897-11eb-9945-87415c59011f.png)
+
+![image](https://user-images.githubusercontent.com/58984578/118764900-d818ab80-b897-11eb-9437-74b9221d94d7.png)
+
+To drop foreign key
+
+![image](https://user-images.githubusercontent.com/58984578/118764991-09917700-b898-11eb-9fa9-8dea7dccd847.png)
+
+![image](https://user-images.githubusercontent.com/58984578/118765039-1a41ed00-b898-11eb-871d-aa3a4fe6b5e1.png)
+
 
