@@ -50,11 +50,18 @@ Above passportID is consider as foreign key and UserID is primary key.
 
 ![image](https://user-images.githubusercontent.com/58984578/118349148-9a9ce100-b56c-11eb-8c55-f147ec3e933b.png)
 
+using query ``` create database dbname; ```
+
+to drop db ``` drop database dbname; ```
+
 <b>Table</b>
 
 ![image](https://user-images.githubusercontent.com/58984578/118349896-29136180-b571-11eb-96b1-f4d7d58e2ea8.png)
 
 To create with query then right click on database name and select New Query and type command for sql query and save
+
+![image](https://user-images.githubusercontent.com/58984578/118765501-cbe11e00-b898-11eb-9817-7e122529f8be.png)
+
 ```
 comments(-- it is used for commenting)
 create table tablename (
