@@ -44,6 +44,27 @@ Above passportID is consider as foreign key and UserID is primary key.
  | 1 | 14 | 
  | 2 | 12 |
 
+#### SQL SERVER Structure
+
+| structure | |
+|---|---|
+| Sql Server |
+| Database 1 | ...n |
+| schema 1 | ..Schema n |
+| table 1 | other entites like sp, triggers, views, functions |
+
+each database has n schema and each schema has n tables or other entities.
+
+#### T-SQL(Transact - Sql)
+ * It is a Microsft sql server's implementation of the standard SQL.
+ * Has it's own proprietary extensions in addition to SQL standard.
+ * Used to perform actions on SQL server database.
+ * Create new db, tables and other objects.
+ * Add user accounts, modify and manage access permissions.
+ * Run maintenance tasks.
+ * Query db for crud operation
+ * create stored proceduresi n db.
+
 #### [MS SQL SERVER](https://sqliteonline.com/)
 
 <b> Create New Database</b>
