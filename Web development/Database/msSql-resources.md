@@ -14,7 +14,7 @@
 [PostgreSQL vs MySQL](https://phoenixnap.com/kb/postgres-vs-mysql) <br/>
 [MS SQL Learn](https://www.sqlservertutorial.net/)  <br/>
 
-#### Relationship 
+#### Relationship (how data is related to each other)
   1. one to one (one person has one aadhar)
 
 | UserID | Name | passportID |
@@ -43,7 +43,20 @@ Above passportID is consider as foreign key and UserID is primary key.
  | 2 | 13 |
  | 1 | 14 | 
  | 2 | 12 |
+ 
+ #### Create relationship in Sql server
+creating primary to foreign key relation.
 
+Step1: ![image](https://user-images.githubusercontent.com/58984578/119218746-9a1dc080-baff-11eb-9400-f81b7a5c8942.png)
+Step2 : Click Add it will opens up the below and click on ellipses 
+
+![image](https://user-images.githubusercontent.com/58984578/119218786-d2bd9a00-baff-11eb-84f6-02735ec0ddda.png)
+Step3: ![image](https://user-images.githubusercontent.com/58984578/119218814-f5e84980-baff-11eb-9776-4de3244ff381.png)
+
+Step4: change the FK name 
+![image](https://user-images.githubusercontent.com/58984578/119218890-2d56f600-bb00-11eb-85c8-b1b2572837ea.png)
+
+ 
 #### SQL SERVER Structure
 
 | structure | |
@@ -66,6 +79,14 @@ each database has n schema and each schema has n tables or other entities.
  * create stored proceduresi n db.
 
 #### [MS SQL SERVER](https://sqliteonline.com/)
+
+* RDBMS developed by Microsoft.
+* An SQL server installation is called Instance and multipe instances can be installed on same machine.
+<b> Requirement</b>
+
+![image](https://user-images.githubusercontent.com/58984578/119217729-c3d3e900-baf9-11eb-84e5-64f8c3539552.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119217740-d3533200-baf9-11eb-82a0-72e0aa3ca1a3.png)
 
 <b> Create New Database</b>
 
