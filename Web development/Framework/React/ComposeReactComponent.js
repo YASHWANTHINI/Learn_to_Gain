@@ -30,7 +30,25 @@ class TypesOfFood extends React.Component {
 };
 
 /*
-ou can render JSX elements, stateless functional components, and ES6 class components within other components.
+output
+Types of Food:
+Fruits:
+Non-Citrus:
+    Apples
+    Blueberries
+    Strawberries
+    Bananas
+Citrus:
+    Lemon
+    Lime
+    Orange
+    Grapefruit
+Vegetables:
+    Brussel Sprouts
+    Broccoli
+    Squash
+
+U can render JSX elements, stateless functional components, and ES6 class components within other components.
 
 In the code editor, the TypesOfFood component is already rendering a component called Vegetables. Also, there is the Fruits component from the last challenge.
 
