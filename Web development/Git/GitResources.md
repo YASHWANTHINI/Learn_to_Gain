@@ -57,3 +57,26 @@ A distributed version control system is a type of version control system. It usu
 Git is a distributed version control system. We've seen that this means each user has a local copy of the repository and that repositories can easily be synchronized. Git is a free and open source software project meaning that the code that implements Git is publically available. No single company owns Git, and anyone can make contributions to improve it. 
 In fact software development of the Linux operating system is managed using Git. A Git repository contains a series of snapshots of the project over time which are known as commits. Each commit contains all of the directories and files of the project at the time the snapshot was taken. You can go back and view the project at earlier points by viewing the older commits.
 Interfacing with Git through the command line interface and the graphical user interface.
+Reason to use the command line is that if something can be executed at the command line, it can also be automated. One of the fundamental principles of DevOps is to automate everything that can be automated. So using the command line goes hand in hand with automation.
+
+#### Basic Syntax
+![image](https://user-images.githubusercontent.com/58984578/119642788-b770c880-be38-11eb-9a9a-c2ac1bfddd3e.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119642842-c5bee480-be38-11eb-8b99-477e0ada6650.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119642891-d2433d00-be38-11eb-822c-7afff8a120f8.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119642942-dcfdd200-be38-11eb-8952-bf54c0229a45.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119643036-ee46de80-be38-11eb-8f33-12a5634a8f8d.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119643542-7b8a3300-be39-11eb-9d85-8e419dd398d2.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119643752-c310bf00-be39-11eb-8b04-4fe24e224380.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119643978-0408d380-be3a-11eb-88b1-99f519bf3e2b.png)
+In this example, we're reading the current value of our name and email address. If this command is executed from inside a local repository, the local value will be returned. If a local value is not specified, the global value is returned. If a global value is not specified, the system value is returned.
+
+![image](https://user-images.githubusercontent.com/58984578/119644183-374b6280-be3a-11eb-8d5b-066c818af64e.png)
+
+Git sometimes opens an editor for you to type a message. For example, an editor will open if you don't specify a commit message. To set your preferred Git editor, you can set the value of the core.editor key. In this example the default Git editor has been changed to nano. 
