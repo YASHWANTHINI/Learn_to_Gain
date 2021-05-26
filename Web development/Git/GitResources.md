@@ -93,7 +93,10 @@ The local repository contains all of the commits that have been made for the pro
 ### Project directory
 The working tree, staging area, and local repository are commonly all contained in a single directory on your local computer. This is called the project directory. The project directory contains the working tree. The working tree contains the directories and files of a single commit or snapshot of your project. You can view and edit these files to prepare them for the next commit. The project directory also contains a hidden directory anyname.git(This is where the staging area and local repository are located). Notice that if you delete your project directory, you are also deleting your local repository and staging area, because they are in the .git directory. 
 ### Remote Repository
-The remote repository is usually located in a data center or in the cloud. The remote repository contains the commits of the project, and is often considered the source of truth or official state of the project. When the local and remote repositories are synchronized, they contain exactly the same commits.
+The remote repository is usually located in a data center or in the cloud. The remote repository contains the commits of the project, and is often considered the source of truth or official state of the project. And it often integrates with other systems like issue trackers and continuous delivery pipelines. When the local and remote repositories are synchronized, they contain exactly the same commits.
+Hosted options for remote git repositories include Bitbucket and GitHub. On-premise options include Bitbucket Server, GitHub Enterprise, as well as some open source on-premise options. The on-premise options can be hosted in a data center or in the cloud. A remote repository is often a bare repository. Because nobody works with the repository locally, there is usually no working tree or staging area on a remote repository. The root directory of a remote repository is similar to the ".git" directory in a local repository. By convention, remote repository names end with ".git".
+
+![image](https://user-images.githubusercontent.com/58984578/119650848-eb9cb700-be41-11eb-94e5-b69740a9ed1a.png)
 
 #### Create a local repository 
 ![image](https://user-images.githubusercontent.com/58984578/119646487-da04e080-be3c-11eb-9edb-e0c656646e53.png)
@@ -133,4 +136,26 @@ Once we execute git commit, you will see that a commit has been created in the l
 ![image](https://user-images.githubusercontent.com/58984578/119649154-ef2f3e80-be3f-11eb-9034-0483fba30812.png)
 
 ![image](https://user-images.githubusercontent.com/58984578/119649288-17b73880-be40-11eb-843c-ccbd867a223b.png)
+
+#### [Create a remote repository](https://d3c33hcgiwev3.cloudfront.net/YrG1-uXRQ2mxtfrl0SNpEQ_103c217d58d7468283954c42dcd586dc_lab3_1_05_create_remote.pdf?Expires=1622160000&Signature=SerQlDFkW0ntXOwPGM8-fbPGkqz3VlRZmvTaEPXTMWAeAtUyJ6Z3VTZ3MIWNEiK1~mol9IhAdtjWmet4ChkOH4Z7lrJKoWNliNj9HdtHyl8k5WqU7PeusTrKsC3Xd-vArhbq7FByIxhKWbVEItPgGVWUD8Fie3nazTQ~KIXKHX8_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A) 
+
+[Bitbucket](https://bitbucket.org/)
+
+#### Push to remote repository
+![image](https://user-images.githubusercontent.com/58984578/119651456-aa58d700-be42-11eb-8e9e-157b1073aafa.png)
+
+If you do not have an existing local repository, then you will clone the remote repository, creating a local repository that is associated with the remote repository. If you already have a local repository with commits that you want to push to a remote repository, then you will add the remote repository to your local repository.
+
+![image](https://user-images.githubusercontent.com/58984578/119651626-d5432b00-be42-11eb-9260-e532c958ecec.png)
+
+Once you have cloned a repository, you can work with the local repository optionally pushing your commits to and pulling new commits from the remote repository. A reference to the remote repository is included in the local repository. This allows you to synchronize the repositories.
+
+![image](https://user-images.githubusercontent.com/58984578/119651947-281ce280-be43-11eb-98b8-325d8c5d22d6.png)
+
+#### Clone
+The git clone command is used to clone a remote repository. You can copy the command or the URL from a git hosting provider.
+If you specify a local project name, that will be used as the name of the project directory.
+If you do not specify a local project name, then the project name in the URL minus the .git will be used as the name of the project directory. 
+
+![image](https://user-images.githubusercontent.com/58984578/119652350-9b265900-be43-11eb-9a60-b1920967c7af.png)
 
