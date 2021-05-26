@@ -80,3 +80,57 @@ In this example, we're reading the current value of our name and email address. 
 ![image](https://user-images.githubusercontent.com/58984578/119644183-374b6280-be3a-11eb-8d5b-066c818af64e.png)
 
 Git sometimes opens an editor for you to type a message. For example, an editor will open if you don't specify a commit message. To set your preferred Git editor, you can set the value of the core.editor key. In this example the default Git editor has been changed to nano. 
+
+#### Locations of Git
+![image](https://user-images.githubusercontent.com/58984578/119644945-20594000-be3b-11eb-9767-b8852904f044.png)
+
+### Working Tree
+We know that a commit is a single snapshot of the project. The working tree is the location on your computer that contains the directories and files of a single commit. This is where you can view and edit the files of the project, preparing them for the next commit. 
+### Staging Area
+The staging area, which is also sometimes called the index. The staging area contains a list of files that are planned to be included in the next commit that you make. You prepare the staging area just the way that you want it, so that the next commit is a meaningful snapshot of the project. 
+### Local Repository
+The local repository contains all of the commits that have been made for the project. These commits represent the version history of the project.
+### Project directory
+The working tree, staging area, and local repository are commonly all contained in a single directory on your local computer. This is called the project directory. The project directory contains the working tree. The working tree contains the directories and files of a single commit or snapshot of your project. You can view and edit these files to prepare them for the next commit. The project directory also contains a hidden directory anyname.git(This is where the staging area and local repository are located). Notice that if you delete your project directory, you are also deleting your local repository and staging area, because they are in the .git directory. 
+### Remote Repository
+The remote repository is usually located in a data center or in the cloud. The remote repository contains the commits of the project, and is often considered the source of truth or official state of the project. When the local and remote repositories are synchronized, they contain exactly the same commits.
+
+#### Create a local repository 
+![image](https://user-images.githubusercontent.com/58984578/119646487-da04e080-be3c-11eb-9edb-e0c656646e53.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119646533-e721cf80-be3c-11eb-81ad-80686187c318.png)
+
+For a new local repository, the working tree and staging area start out empty, and no commits are in the local repository. You can execute the git init command in an empty directory to initialize or create a repository. Here we are in our home directory and we create a repos directory. This is a recommended single location for all of your local repositories on your computer. We change directories to the repos directory. Next, we'll create a project directory. We are naming this directory myproj. We change into the myproj directory. Now that we are inside of our project directory, we can execute git init to begin managing our project directory with Git. Notice that Git responds with a message saying that it has initialized and empty Git repository inside of a newly created dot Git directory in the project directory. We can now list the contents of the project directory, specifying the dash a flag to include hidden directories. Notice that Git has created a dot git directory. In your project directory you now have an empty working tree and a hidden dot git directory. The dot git directory contains an empty staging area and a local repository containing no commits. 
+
+#### Commit to Local repository
+[PDF](https://d3c33hcgiwev3.cloudfront.net/_7f00ec98be4bc67d9c4478a9c111d2e5_lab3_1_04b_cli_commit.pdf?Expires=1622160000&Signature=G4pwq2DpDAAepRtR-poHHlqEsvbPa7xMXVEPuFDXR56Y6fEn3LtA-XM4umK3CvP9RtMGGeTcGx1lIRntAINta~rkBcssF5ZM6zOepRagrZmAZbaP0ZKFzOYB3LsKj1xRggpj6fvYmg8u3qycAL4jrNhAXmVGb-y5GQbBiFWNGQE_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
+![image](https://user-images.githubusercontent.com/58984578/119647640-26045500-be3e-11eb-9822-719860da581b.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119647769-4b915e80-be3e-11eb-9b2b-368165debd44.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119648001-927f5400-be3e-11eb-8f94-98cc4d7d29e2.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119648127-b3e04000-be3e-11eb-9119-059c7b62f22a.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119648188-cc505a80-be3e-11eb-8af2-cdda5bd0c565.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119648586-41bc2b00-be3f-11eb-81d9-249fd4743a3e.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119648719-6d3f1580-be3f-11eb-9fb1-78e53ee1e325.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119648963-af685700-be3f-11eb-9223-6c76763084d1.png)
+
+Use the git commit command to add staged content to the local repository as a commit.
+This includes content that you have recently added to the stage, as well as the content that was in the previous commit.
+The result is a commit that is an entire snapshot of the project. In other words, once you have committed a file, it will remain in the staging area and in all commits, unless you specifically remove it.
+When executing git commit, you can use the -m flag to specify a short commit message. In this case, our commit message is initial commit. If you don't specify -m, your default git editor will open. And you can enter a message describing the commit. This is especially useful if your commit message contains multiple lines of text.
+The commit message is included when viewing the project history. So it's important that it is clear and accurate.
+Once we execute git commit, you will see that a commit has been created in the local repository. Git status will then show that the working tree and staging area are clean.
+
+![image](https://user-images.githubusercontent.com/58984578/119649090-dde63200-be3f-11eb-96c2-ac35f321cb26.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119649154-ef2f3e80-be3f-11eb-9034-0483fba30812.png)
+
+![image](https://user-images.githubusercontent.com/58984578/119649288-17b73880-be40-11eb-843c-ccbd867a223b.png)
+
