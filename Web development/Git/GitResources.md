@@ -10,6 +10,7 @@ The collection of commits contain the history of the project. At any time you ca
 All commits belong to a <b>branch.</b>
 
 A branch can be thought of as an independent line of development of the project. By default, there is a single branch and it's called master. In this example, commits A, B, and C all belong to the master branch.
+All commits belong to a branch, a branch can be thought of as an independent line of development of the project. By default, there is a single branch and it is called <b>master.</b> 
 How do you maintain a stable project at the same time that you are working on it? You can create a separate branch and work on it independently of the master branch.
 Here a featureX branch was created, and commit C includes content that is unique to the featureX branch. In this case, the master branch does not know that the featureX branch exists. The master branch thinks that the latest commit is B, even though separate work has been done on commit C. We've seen that branches can be used to independently work on the project without disrupting the rest of the project. Here the master branch sees the project as 50 stable files. This commit has usually been tested, approved and maybe the version of the product that is currently in production.
 The featureX branch sees the same 50 files plus maybe one file that was added for the new feature.
@@ -161,3 +162,29 @@ If you do not specify a local project name, then the project name in the URL min
 
 ![image](https://user-images.githubusercontent.com/58984578/119674047-80f77580-be59-11eb-8b7b-8fbb02174cc0.png)
 
+Instead of including that URL in git commands, you can use the alias named origin.
+
+#### [Add Repository](https://d3c33hcgiwev3.cloudfront.net/bN_e21yWRsGf3ttclqbBfg_dfd113937c634510801a5199e1d2e90b_lab3_1_06b_cli_push.pdf?Expires=1622160000&Signature=NzcEJisSEma8IbUwbQuJ0APTzU5c4ZxnVOe509USvByMrfLTRa9~ye~qf16P0sCxaw-mv8WuxxVdJK2dVzEwHJBUeaisUe3DIwVgRFuXHiupUm45PsIGIH2T~JVpWQ7ATGmh4zXQRSrNXHYHT3WzNA636Ygsv1ypGnTjI8FOzi4_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
+![image](https://user-images.githubusercontent.com/58984578/119695155-8958ac00-be6b-11eb-9645-f56e7e07d05e.png)
+
+name- origin
+
+![image](https://user-images.githubusercontent.com/58984578/119694953-5adad100-be6b-11eb-9ab8-c307dd2915f0.png)
+
+Git push writes commits for a branch from the local repository to the remote repository. A successful push synchronizes the branches on the local and remote repositories so that they contain exactly the same commits. Pushing to the remote repository is primarily done to share your work with the team, but it also serves as a good back up of the local repository.
+
+![image](https://user-images.githubusercontent.com/58984578/119695925-4cd98000-be6c-11eb-910f-8f21cbc8da48.png)
+
+You execute the git push command to push commits from the local repository to the remote repository. The first time you push, you should pass the repository shortcut name or Url. The shortcut name is often origin.
+You should also include the branch name that you would like to push. The set upstream, or -u option, is used to set up a tracking relationship between your local branch and the corresponding remote branch. Git can then inform you when the branches are out of synch.
+The values after git push are all optional, because git will assume default information or use previous values after you've executed the first push.
+
+First we use the git remote command to verify that our local repository named repoa has an association with the remote repository. Here you can see that the shortcut name of the remote repository is origin and it corresponds to the URL of a repository on Bitbucket.
+Next, we execute the git push command. We specify the -u flag the first time to set up a tracking relationship between the local and remote branches. We are pushing to the remote repository named origin, and the branch that we are pushing is called master.
+The first time you push, you may need to specify your Bitbucket user name and password.
+The commits from the local master branch are then written to the remote master branch. Because there is only one branch on both repositories, the repositories are now synchronized.
+
+Notice that after writing the objects to the remote repository, git informs you that a tracking relationship has been set up between the local and remote branches because you specified the -u flag.
+
+![image](https://user-images.githubusercontent.com/58984578/119696792-29fb9b80-be6d-11eb-9115-e1f4c2010c02.png)
