@@ -1,4 +1,5 @@
 #### Insert Data
+[refer](https://docs.microsoft.com/en-us/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver15)
 ```
 use dbname;
 insert into tablename (id,name) values (1,'yash');
@@ -21,6 +22,7 @@ insert into courses values
 ('Artificial Intelligence',3,'CS110')
 ```
 #### Select data
+[refer](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15)
 ```
 use dbname;
 select * from tablename;
@@ -55,7 +57,12 @@ select lastname from [dbname].[dbo].[tablename] where lastname like '%i';//end w
 ```
 select name from tablename where counting = 3 || counting < 2 || counting <= 5 || counting > 6 || counting >=6 ;
 ```
+Select DISTINCT stmt is used to return only uniquerows in result.
+```
+select distinct deptnum from tablename;
+```
 #### update data
+[refer](https://docs.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15)
 ```
 update talename set columnaname='value' where condition;
 
