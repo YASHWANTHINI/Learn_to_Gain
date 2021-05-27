@@ -83,3 +83,6 @@ where id = 11
 
 ```
 [Operator](https://www.c-sharpcorner.com/blogs/operators-in-sql-server)
+
+#### Delete data
+[Refer](https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15)
