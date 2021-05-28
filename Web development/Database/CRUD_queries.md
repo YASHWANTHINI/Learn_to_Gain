@@ -39,7 +39,10 @@ select id [Student id] from tablename; // can specify without as
 
 ```
 select * from [dbname].[dbo].[tablename] where lastname='name'; // without specifying use dbname
+
+SELECT NAME FROM EMPLOYEE ORDER BY NAME ASC; // ASCENDING ORDER BY NAME
 ```
+[REFER](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15)
 ```
 select lastname from [dbname].[dbo].[tablename] where lastname like '%i%'; // if lastname contains i in the name it will be selected. eg: retrieved sample data: Williams, Diya,lakshmi... 
 
