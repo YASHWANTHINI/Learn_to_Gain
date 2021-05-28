@@ -31,6 +31,7 @@ select TOP 7 name from tablename
  * GO is a command recognised bt SSMS and not T-SQL stmt.
  * it is used as a signal to perform a task or batch terminator.
  * GO command is used to group SQL commands into batches which are sent to the server together. The commands included in the batch, that is, the set of commands since the last GO command or the start of the session, must be logically consistent.  
+ * Tools> option 👇
 
 ![image](https://user-images.githubusercontent.com/58984578/119944004-60daca00-bfb1-11eb-846b-b7426adaa669.png)
 
