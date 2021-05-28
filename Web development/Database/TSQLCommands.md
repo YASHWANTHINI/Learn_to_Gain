@@ -78,9 +78,8 @@ name
 yashwa  // can also executed when like '%ya%'
 divya
 manasvy
-
-
 ```
+[wildcard refer](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/wildcard-character-s-to-match-transact-sql?view=sql-server-2017)
 
 #### Upper and lower case
 ```
