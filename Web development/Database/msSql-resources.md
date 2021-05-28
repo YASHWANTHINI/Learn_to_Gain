@@ -65,8 +65,18 @@ Step4: change the FK name
 | Database 1 | ...n |
 | schema 1 | ..Schema n |
 | table 1 | other entites like sp, triggers, views, functions |
-
 each database has n schema and each schema has n tables or other entities.
+#### SQL Server editions
+
+![image](https://user-images.githubusercontent.com/58984578/119929395-09c9fa80-bf9b-11eb-8e84-8fe073bf3494.png)
+
+[Installation](https://www.udemy.com/course/microsoft-sql-for-beginners-ms-sql-servert-sql-ssms/learn/lecture/26650204#overview)
+
+#### SSMS (SQL Server Management Studio)
+ * It's an IDE that provides graphical interface for connecting & working with MS SQL Server.
+ * Free tool
+[Installation](https://www.udemy.com/course/microsoft-sql-for-beginners-ms-sql-servert-sql-ssms/learn/lecture/26650214#overview)
+[Connection](https://www.udemy.com/course/microsoft-sql-for-beginners-ms-sql-servert-sql-ssms/learn/lecture/26650220#overview)
 
 #### T-SQL(Transact - Sql)
  * It is a Microsft sql server's implementation of the standard SQL.
@@ -75,8 +85,14 @@ each database has n schema and each schema has n tables or other entities.
  * Create new db, tables and other objects.
  * Add user accounts, modify and manage access permissions.
  * Run maintenance tasks.
- * Query db for crud operation
- * create stored proceduresi n db.
+ * Query db for crud operation.
+ * create stored procedures in db.
+ * It tells the db engine what it wants and db engine handles the processing.
+
+PL/SQL - Oracle version of SQL
+T-SQL - Microsoft version of SQL
+
+SQL is an international language recognised by ANSI & ISO. 
 
 #### [MS SQL SERVER](https://sqliteonline.com/)
 
