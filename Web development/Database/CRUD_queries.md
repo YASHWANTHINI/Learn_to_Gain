@@ -47,6 +47,7 @@ select lastname from [dbname].[dbo].[tablename] where lastname like 'i%';//begin
 
 select lastname from [dbname].[dbo].[tablename] where lastname like '%i';//end with i
 ```
+dbo - schema (collection of db objects)
 
 ![image](https://user-images.githubusercontent.com/58984578/119771414-4cc49900-bedb-11eb-9863-bedace4086fa.png)
 
