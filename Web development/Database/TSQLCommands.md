@@ -78,8 +78,12 @@ name
 -----
 yashwa  // can also executed when like '%ya%'
 divya
-manasvy
+manasvy // like '_an%' second and third shuld be a and n
 ```
+![image](https://user-images.githubusercontent.com/58984578/120000531-8b984300-bff0-11eb-8082-810dbcea2b26.png)
+
+![image](https://user-images.githubusercontent.com/58984578/120000655-abc80200-bff0-11eb-8c1a-aef98c00a07a.png)
+
 [wildcard refer](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/wildcard-character-s-to-match-transact-sql?view=sql-server-2017)
 
 #### Upper and lower case
