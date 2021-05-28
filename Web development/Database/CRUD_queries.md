@@ -74,6 +74,7 @@ update Students set enrollmentdate = '2019-05-01' where enrollmentdate is null
 -- Update all enrollment dates
 -- Update multiple records (be careful)
 update Students set enrollmentdate = '2019-06-10'
+GO // optional
 
 -- Update multiple columns
 update Students set firstname = 'Tajee', lastname = 'McDermott'
@@ -87,3 +88,50 @@ where id = 11
 
 #### Delete data
 [Refer](https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15)
+
+[refer](https://stackoverflow.com/questions/22336807/difference-between-delete-and-delete-from-in-sql/22336960)
+The first FROM keyword is syntactically optional in a DELETE statement.
+
+[Refer](http://technet.microsoft.com/en-us/library/ms189835.aspx)
+
+The keyword is optional for two reasons.
+
+First, the standard requires the FROM keyword in the clause, so it would have to be there for standards compliance.
+
+Second, although the keyword is redundant, that's probably not why it's optional. I believe that it's because SQL Server allows you to specify a JOIN in the DELETE statement, and making the first FROM mandatory makes it awkward.
+
+For example, here's a normal delete:
+
+```DELETE FROM Employee WHERE ID = @value```
+
+And that can be shortened to:
+
+```DELETE Employee WHERE ID = @value```
+
+#### Truncate Table
+delete all records but leaves the structures.
+
+``` truncate table tablename; ```
+
+#### Dropping database, table
+deleting the table(including structure) from database.
+
+```
+drop table tablename
+drop database dbname 
+```
+
+#### Backing up databse
+full backup takes complete copy of ghe databse including transaction logs.
+```
+use dbname
+backup database dbname
+to disk ='D:\folderame\filename.bak'
+go
+```
+#### Restore database
+```
+restore database dbname
+from disk = 'D:\folderame\filename.bak'
+go
+```
