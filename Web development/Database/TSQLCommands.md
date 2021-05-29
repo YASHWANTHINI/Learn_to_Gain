@@ -194,4 +194,28 @@ yash
 
 select name from tablename where name IS NULL ; 2 null executed
 select name from tablename where IS NOT NUL; // 2 name executed.
+```
+#### ORDER BY
+ Used to sort the result in ascending or descending order. By default ascending.
+ ```
+ select name from tablename where id > 8 order by name desc;
+ select name from tablename where id > 8 order by name; // asc default
  
+ name | job_role |
+ -----|----------|
+meera | Manager  |
+diaa  | manager  | 
+abi   | Sales    |
+asha  | Sales    |
+mithun| admin    |
+
+select name, job_role from tablename where orderby name,job_role;
+name | job_role |
+ -----|----------|
+abi   | Sales    |
+asha  | Sales    |
+diaa  | manager  |
+meera | Manager  |
+mithun| admin    |
+```
+![image](https://user-images.githubusercontent.com/58984578/120068950-e8ebcd00-c0a0-11eb-970b-c193b97abfac.png)
