@@ -10,3 +10,7 @@ select name from tablename;
 GO
 ```
 AS keywork is alias. These are used to give table or column in table, temporary name. It onl exists for the duration of the queery. 
+
+[View refer](https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15)
+
+[View notes](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15)
