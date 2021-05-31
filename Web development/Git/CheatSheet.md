@@ -245,3 +245,5 @@ How to force a push request in Git:
 This command will force a push request. This is usually fine for pull request branches because nobody else should have cloned them.
 But this isn't something that you want to do with public repos.
 ```git push -f ```
+
+![image](https://user-images.githubusercontent.com/58984578/120154115-23727880-c20d-11eb-9bf7-6c003d9d4bec.png)
