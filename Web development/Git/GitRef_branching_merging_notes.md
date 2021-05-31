@@ -9,3 +9,6 @@ Here, the latest commit has two references associated with it, HEAD and master.
 All commits of a project belong to a branch. By default, commit belong to the master branch. A branch is a set of commits starting with the most recent commit in the branch and tracing back to the project's first commit.
 
 [refer](https://d3c33hcgiwev3.cloudfront.net/_f446971cf5640543da624ba0b6ef7463_lab3_2_04b_cli_branches.pdf?Expires=1622592000&Signature=URmjl-EdhWWVQzeas9V7Kfi4tqST8ayUOY-FGODu61jxaLCTj0RtyUtxA8LFFGIsFSqaSZGjZjh70wV6m0B4z5FtIpLcTvnGr8sO0GSZahK2bNpukiRu9MR1KTrAkRbI9XetQqU5Kie3F8iTtspY0ee85lAmF5fPDQH8Wu-odn0_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
+
+#### Merging
+[refer](https://d3c33hcgiwev3.cloudfront.net/_64b2b7144f1d35962c3ffc7b90ee599e_lab3_2_05b_cli_merging.pdf?Expires=1622592000&Signature=j1wrwtOUpHDpI6ak9kU0ZFQTBs6LX2pVEMrlJRIG3WtSwjk77VwyeE3sOXnLReEF3YYRMA7o-UDZ080nIdA4wp-~yUVzpTDEh29W0walrsWJxJ1NQNDkg12kHhBA1uxMjWg46fH-bE7VLnxjHfBpqF2l5H0AA5L3UPuip7ZO-hk_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A)
