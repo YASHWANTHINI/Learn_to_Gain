@@ -110,13 +110,14 @@ Sample Input
 ![image](https://user-images.githubusercontent.com/58984578/120262224-07c3ac80-c2b7-11eb-85f2-0a64081c46b1.png)
 
 Sample Output
-
+```
 Maria 10 99
 Jane 9 81
 Julia 9 88 
 Scarlet 8 78
 NULL 7 63
 NULL 7 68
+```
 ```
 SELECT CASE WHEN Grade < 8 THEN NULL
             ELSE Name 
@@ -126,3 +127,29 @@ FROM Students, Grades
 WHERE Marks BETWEEN Min_Mark AND Max_Mark
 ORDER BY Grade DESC, Name, Marks;
 ```
+Query the difference between the maximum and minimum populations in CITY.
+```
+select max(population) - min(population) as difference from city;
+```
+
+Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+Write a query calculating the amount of error (i.e.: actual-miscalculated average monthly salaries), and round it up to the next integer.
+Sample input
+
+![image](https://user-images.githubusercontent.com/58984578/120263813-15c6fc80-c2ba-11eb-8d8e-d765ccd17ee8.png)
+
+Sample Output  2061
+
+Explanation
+The table below shows the salaries without zeros as they were entered by Samantha:
+
+![image](https://user-images.githubusercontent.com/58984578/120263859-2d05ea00-c2ba-11eb-8c12-217bc1321288.png)
+
+Samantha computes an average salary of 98.00. The actual average salary is 2159.00.
+The resulting error between the two calculations is 2159.00 - 98.00 = 2061.00. Since it is equal to the integer 2061, it does not get rounded up.
+```
+SELECT CAST(CEILING((AVG(CAST(Salary AS Float)) - AVG(CAST(REPLACE(Salary, 0, '')AS Float)))) AS INT)
+FROM EMPLOYEES;`
+```
+[refer1](https://docs.microsoft.com/en-us/sql/t-sql/functions/ceiling-transact-sql?view=sql-server-ver15)
+[refer2](https://www.geeksforgeeks.org/floor-and-ceiling-function-in-sql-server/)
