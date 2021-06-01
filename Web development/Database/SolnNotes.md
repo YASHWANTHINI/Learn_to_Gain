@@ -66,3 +66,10 @@ select concat(name,concat('(', concat(substring(occupation,1,1),')'))) from occu
 select concat('There are a total of',concat(' ',concat(count(occupation),concat(' ',concat(lower(occupation),'s.'))))) as total from occupations
 group by occupation order by total;
 ```
+
+Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+```
+select name from students where marks > 75 order by right(name, 3), id asc;
+```
+
+[refer](https://www.sqlservertutorial.net/sql-server-string-functions/sql-server-right-function/)
