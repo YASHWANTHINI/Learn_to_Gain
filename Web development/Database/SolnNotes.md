@@ -99,3 +99,30 @@ select city.name from city, country where city.countrycode = country.code and co
 //3
 SELECT COUNTRY.CONTINENT, FLOOR(AVG(CITY.POPULATION)) FROM CITY JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE GROUP BY COUNTRY.CONTINENT;
 ```
+
+![image](https://user-images.githubusercontent.com/58984578/120262113-e4006680-c2b6-11eb-962d-a65bab2af442.png)
+
+![image](https://user-images.githubusercontent.com/58984578/120262122-e6fb5700-c2b6-11eb-8884-fc2dac733975.png)
+
+Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+Sample Input
+
+![image](https://user-images.githubusercontent.com/58984578/120262224-07c3ac80-c2b7-11eb-85f2-0a64081c46b1.png)
+
+Sample Output
+
+Maria 10 99
+Jane 9 81
+Julia 9 88 
+Scarlet 8 78
+NULL 7 63
+NULL 7 68
+```
+SELECT CASE WHEN Grade < 8 THEN NULL
+            ELSE Name 
+       END 
+       AS Name, Grade, Marks
+FROM Students, Grades
+WHERE Marks BETWEEN Min_Mark AND Max_Mark
+ORDER BY Grade DESC, Name, Marks;
+```
