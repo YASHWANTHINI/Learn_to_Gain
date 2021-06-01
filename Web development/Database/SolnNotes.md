@@ -73,3 +73,29 @@ select name from students where marks > 75 order by right(name, 3), id asc;
 ```
 
 [refer](https://www.sqlservertutorial.net/sql-server-string-functions/sql-server-right-function/)
+
+1) Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+![image](https://user-images.githubusercontent.com/58984578/120260590-d39abc80-c2b3-11eb-8478-afaaec7e7df5.png)
+
+![image](https://user-images.githubusercontent.com/58984578/120260602-d7c6da00-c2b3-11eb-83f4-0a1ba8a15ce3.png)
+
+2) Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+3)Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+```
+//1
+SELECT SUM(CITY.POPULATION) 
+FROM CITY, COUNTRY
+WHERE CITY.COUNTRYCODE = COUNTRY.CODE AND COUNTRY.CONTINENT = 'Asia';
+
+//2
+select city.name from city, country where city.countrycode = country.code and country.continent = 'Africa';
+
+//3
+SELECT COUNTRY.CONTINENT, FLOOR(AVG(CITY.POPULATION)) FROM CITY JOIN COUNTRY ON CITY.COUNTRYCODE = COUNTRY.CODE GROUP BY COUNTRY.CONTINENT;
+```
