@@ -153,3 +153,4 @@ FROM EMPLOYEES;`
 ```
 [refer1](https://docs.microsoft.com/en-us/sql/t-sql/functions/ceiling-transact-sql?view=sql-server-ver15)
 [refer2](https://www.geeksforgeeks.org/floor-and-ceiling-function-in-sql-server/)
+[refer3](https://www.mssqltips.com/sqlservertip/1589/sql-server-rounding-functions--round-ceiling-and-floor/)
