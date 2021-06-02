@@ -86,3 +86,119 @@ HAVING SUM(SALARY)>3000;
 
 ![image](https://user-images.githubusercontent.com/58984578/120507239-430fc980-c3e4-11eb-8dc2-9bacc2166877.png)
 
+#### WITH TIES clause
+
+![image](https://user-images.githubusercontent.com/58984578/120508243-2fb12e00-c3e5-11eb-87d3-61b71513987d.png)
+
+```
+SELECT * from myTable 
+order by salary desc 
+fetch first 3 rows only;
+```
+![image](https://user-images.githubusercontent.com/58984578/120508437-58d1be80-c3e5-11eb-951e-413d3d9f355a.png)
+
+Note: In the above result we got first 3 rows, ordered by Salary in Descending Order, but we have one more row with same salary i.e, the row with name Watson and Salary 10000, but it didn’t came up, because we restricted our output to first three rows only. But this is not optimal, because most of the time in live applications we will be required to display the tied rows also.
+
+Real Life Example – Suppose we have 10 Racers running, and we have only 3 prizes i.e, first, second, third, but suppose, Racers 3 and 4 finished the race together in same time, so in this case we have a tie between 3 and 4 and that’s why both are holder of Position 3.
+
+So, to overcome the above problem, Oracle introduces a clause known as With Ties clause. Now, let’s see our previous example using With Ties clause.
+```
+Query:
+SELECT * from myTable 
+order by salary desc 
+fetch first 3 rows With Ties;
+
+Output:
+See we get only first 3 rows order by Salary in Descending Order along with Tied Row also
+
+ID    NAME       SALARY
+--------------------------
+3    Dhoni     16000
+1    Geeks     10000
+6    Watson    10000 // We get Tied Row also
+4    Finch     10000
+```
+Note: We get the tied row in our output, only when we use the order by clause in our Select statement. Suppose, if we won’t use order by clause, and still we are using with ties clause, then we won’t get the tied row in our output 
+```
+Query:
+SELECT * from myTable 
+fetch first 3 rows With Ties;
+
+Output:
+See we won't get the tied row because we didn't use order by clause
+
+ID    NAME      SALARY
+--------------------------
+1    Geeks    10000
+4    Finch    10000
+2    RR       6000
+```
+#### OFFSET-FETCH Clause
+OFFSET and FETCH Clause are used in conjunction with SELECT and ORDER BY clause to provide a means to retrieve a range of records.
+
+#### OFFSET
+The OFFSET argument is used to identify the starting point to return rows from a result set. Basically, it exclude the first set of records.
+Note:
+
+    OFFSET can only be used with ORDER BY clause. It cannot be used on its own.
+    OFFSET value must be greater than or equal to zero. It cannot be negative, else return error.
+```
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+ORDER BY column_name
+OFFSET rows_to_skip ROWS;
+```
+![image](https://user-images.githubusercontent.com/58984578/120513603-11016600-c3ea-11eb-88ae-d2e076a7b28d.png)
+```
+SELECT Fname, Lname
+FROM Employee
+ORDER BY Salary
+OFFSET 1 ROWS;
+```
+Print Fname, Lname of all the Employee except the employee having lowest salary.
+
+![image](https://user-images.githubusercontent.com/58984578/120513737-2ffff800-c3ea-11eb-81a9-661936230a31.png)
+
+#### FETCH
+The FETCH argument is used to return a set of number of rows. FETCH can’t be used itself, it is used in conjuction with OFFSET.
+Syntax:
+```
+SELECT column_name(s)
+FROM table_name
+ORDER BY column_name
+OFFSET rows_to_skip
+FETCH NEXT number_of_rows ROWS ONLY;
+```
+Print the Fname, Lname from 3rd to 6th tuple of Employee table when sorted according to the Salary.
+```
+SELECT Fname, Lname
+FROM Employee
+ORDER BY Salary
+OFFSET 2 ROWS
+FETCH NEXT 4 ROWS ONLY;
+```
+
+![image](https://user-images.githubusercontent.com/58984578/120514105-9127cb80-c3ea-11eb-9e7a-2761ffde0dbe.png)
+
+Print the bottom 2 tuples of Employee table when sorted by Salary.
+```
+SELECT Fname, Lname
+FROM Employee
+ORDER BY Salary
+OFFSET (SELECT COUNT(*) FROM EMPLOYEE) - 2 ROWS
+FETCH NEXT 2 ROWS;
+```
+![image](https://user-images.githubusercontent.com/58984578/120514173-a3a20500-c3ea-11eb-867a-0e6447b80c94.png)
+
+Important Points:
+
+    OFFSET clause is mandatory with FETCH. You can never use, ORDER BY … FETCH.
+    TOP cannot be combined with OFFSET and FETCH.
+    The OFFSET/FETCH row count expression can be only be any arithmetic, constant, or parameter expression which will return an integer value.
+    ORDER BY is mandatory to be used with  OFFSET and FETCH clause.
+    OFFSET value must be greater than or equal to zero. It cannot be negative, else return error.
+
+#### Comparison
+
+[refer](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/comparison-operators-transact-sql?view=sql-server-ver15)
