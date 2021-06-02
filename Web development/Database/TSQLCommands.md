@@ -86,6 +86,8 @@ manasvy // like '_an%' second and third shuld be a and n
 
 [wildcard refer](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/wildcard-character-s-to-match-transact-sql?view=sql-server-2017)
 
+[refer](https://www.sqlshack.com/t-sql-regex-commands-in-sql-server/)
+
 #### Upper and lower case
 ```
 select upper(name) as uppercase, lower(name) as lowercase from tablename;
