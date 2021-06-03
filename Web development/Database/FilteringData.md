@@ -199,6 +199,104 @@ Important Points:
     ORDER BY is mandatory to be used with  OFFSET and FETCH clause.
     OFFSET value must be greater than or equal to zero. It cannot be negative, else return error.
 
-#### Comparison
+#### equality comparison
 
 [refer](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/comparison-operators-transact-sql?view=sql-server-ver15)
+```
+DECLARE @MyVar int;
+SET @MyVar = 5;
+
+select name from tablename where id = @MyVar; // equal to
+select name from tablename where id <> @MyVar;//not equal
+select name from tablename where id <= @MyVar;//lessthan (possible for >, < , >=)
+```
+<b>When you compare using a NULL expression, the result depends on the ANSI_NULLS setting:
+
+If ANSI_NULLS is set to ON, the result of any comparison with NULL is UNKNOWN, following the ANSI convention that NULL is an unknown value and cannot be compared with any other value, including other NULLs.
+<br/>
+If ANSI_NULLS is set to OFF, the result of comparing NULL to NULL is TRUE, and the result of comparing NULL to any other value is FALSE.</b>
+```
+-- SET ANSI_NULLS to ON and test.  
+PRINT 'Testing ANSI_NULLS ON';  
+SET ANSI_NULLS ON;  
+GO  
+DECLARE @varname int;  
+SET @varname = NULL  
+  
+SELECT a   
+FROM t1   
+WHERE a = @varname;  
+  
+SELECT a   
+FROM t1   
+WHERE a <> @varname;  
+  
+SELECT a   
+FROM t1   
+WHERE a IS NULL;  
+GO  
+//output 
+ Testing ANSI_NULLS ON  
+a  
+-----------  
+  
+(0 row(s) affected)  
+  
+a  
+-----------  
+  
+(0 row(s) affected)  
+  
+a  
+-----------  
+NULL  
+  
+(1 row(s) affected)
+
+-- SET ANSI_NULLS to OFF and test.  
+PRINT 'Testing SET ANSI_NULLS OFF';  
+SET ANSI_NULLS OFF;  
+GO  
+DECLARE @varname int;  
+SET @varname = NULL;  
+SELECT a   
+FROM t1   
+WHERE a = @varname;  
+  
+SELECT a   
+FROM t1   
+WHERE a <> @varname;  
+  
+SELECT a   
+FROM t1   
+WHERE a IS NULL;  
+GO  
+
+//output
+Testing SET ANSI_NULLS OFF  
+a  
+-----------  
+NULL  
+  
+(1 row(s) affected)  
+  
+a  
+-----------  
+0  
+1  
+  
+(2 row(s) affected)  
+  
+a  
+-----------  
+NULL  
+  
+(1 row(s) affected)  
+```
+
+### Using >, < 
+```
+DECLARE @a INT = 45, @b INT = 40;  
+SELECT IIF ( @a > @b, 'TRUE', 'FALSE' ) AS Result; //true if < then false
+```
+
