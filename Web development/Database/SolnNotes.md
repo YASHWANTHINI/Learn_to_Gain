@@ -371,3 +371,302 @@ Query the Manhattan Distance between points p and q and round it to a scale of 4
 SELECT CAST((ABS(MAX(LAT_N)-MIN(LAT_N)) + ABS(MAX(LONG_W)-MIN(LONG_W))) AS NUMERIC(18,4)) FROM STATION;
 ```
 [Absolute (positive)](https://docs.microsoft.com/en-us/sql/t-sql/functions/abs-transact-sql?view=sql-server-ver15)
+
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.
+
+```
+select distinct
+  cast(
+     round(
+       PERCENTILE_DISC (.5) WITHIN GROUP (order by lat_n) OVER()
+     ,4) 
+   as decimal(16,4))
+from station
+```
+[Percentile_Disc](https://docs.microsoft.com/en-us/sql/t-sql/functions/percentile-disc-transact-sql?view=sql-server-ver15)
+
+Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! Write a query to print the respective hacker_id and name of hackers who achieved full scores for more than one challenge. Order your output in descending order by the total number of challenges in which the hacker earned a full score. If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.
+
+![image](https://user-images.githubusercontent.com/58984578/121293115-b8116080-c908-11eb-9797-a873da4a4554.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121293140-c2cbf580-c908-11eb-8539-e76e7ff4c123.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121293204-db3c1000-c908-11eb-8e71-9e395fb9379f.png)
+
+##### Submission table
+
+![image](https://user-images.githubusercontent.com/58984578/121293286-03c40a00-c909-11eb-8de4-85dd635a1b01.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121293312-0fafcc00-c909-11eb-8059-155fc2683d03.png)
+
+```
+SELECT CONCAT(CAST(hacker_id AS VARCHAR), SPACE(2), name)
+FROM (
+     SELECT S.hacker_id AS [hacker_id], H.name AS [name], COUNT(S.challenge_id) AS [Total_Challenges]
+     FROM Submissions S
+     INNER JOIN Challenges C ON S.challenge_id = C.challenge_id
+     INNER JOIN Hackers H ON H.hacker_id = S.hacker_id
+    INNER JOIN Difficulty D ON D.difficulty_level = C.difficulty_level AND S.score = D.score
+        GROUP BY S.hacker_id, H.name
+     HAVING COUNT(S.challenge_id) > 1
+     ) 
+     AS Derived_Table
+ORDER BY Total_Challenges DESC, hacker_id ASC
+```
+Harry Potter and his friends are at Ollivander's with Ron, finally replacing Charlie's old broken wand.
+
+Hermione decides the best way to choose is by determining the minimum number of gold galleons needed to buy each non-evil wand of high power and age. Write a query to print the id, age, coins_needed, and power of the wands that Ron's interested in, sorted in order of descending power. If more than one wand has same power, sort the result in order of descending age.
+
+```
+SELECT id, age, coins_needed, power
+FROM 
+(
+    SELECT W.id, WP.age, W.coins_needed, W.power,
+    ROW_NUMBER() OVER 
+        (
+            PARTITION BY W.code,W.power  
+            ORDER BY W.coins_needed, W.power DESC
+        ) AS RowNumber
+    FROM Wands W WITH (NOLOCK)
+    INNER JOIN Wands_Property WP WITH (NOLOCK) ON W.code = WP.code
+    WHERE WP.is_evil = 0
+)
+AS Wand_Data
+WHERE RowNumber = 1
+ORDER BY power DESC, age DESC
+```
+[row_number](https://docs.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql?view=sql-server-ver15) <br/>
+[row_number example](https://www.sqlshack.com/overview-of-the-sql-row-number-function/)
+
+Julia asked her students to create some coding challenges. Write a query to print the hacker_id, name, and the total number of challenges created by each student. Sort your results by the total number of challenges in descending order. If more than one student created the same number of challenges, then sort the result by hacker_id. If more than one student created the same number of challenges and the count is less than the maximum number of challenges created, then exclude those students from the result.
+
+Hackers: The hacker_id is the id of the hacker, and name is the name of the hacker. 
+
+![image](https://user-images.githubusercontent.com/58984578/121294845-b1d0b380-c90b-11eb-8de9-4936670cee46.png)
+
+Challenges: The challenge_id is the id of the challenge, and hacker_id is the id of the student who created the challenge. 
+
+![image](https://user-images.githubusercontent.com/58984578/121294864-b9905800-c90b-11eb-8f49-8c6e21eacf9e.png)
+
+##### Sample Input
+
+![image](https://user-images.githubusercontent.com/58984578/121294990-eba1ba00-c90b-11eb-8b18-d3033d8e7400.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121295008-f2c8c800-c90b-11eb-96cc-8d0765bb26f8.png)
+
+##### Sample Output 0
+
+21283 Angela 6
+88255 Patrick 5
+96196 Lisa 1
+
+##### For Sample Case 0, we can get the following details:
+
+Students 5077 and 62743 both created 4 challenges, but the maximum number of challenges created is 6 so these students are excluded from the result.
+
+![image](https://user-images.githubusercontent.com/58984578/121295283-61a62100-c90c-11eb-887c-4d97c8753cd7.png)
+
+```
+/* count total submissions of challenges of each user */
+WITH data
+AS
+(
+SELECT c.hacker_id as id, h.name as name, count(c.hacker_id) as counter
+FROM Hackers h
+JOIN Challenges c on c.hacker_id = h.hacker_id
+GROUP BY c.hacker_id, h.name
+)
+/* select records from above */
+SELECT id,name,counter
+FROM data
+WHERE
+counter=(SELECT max(counter) FROM data) /*select user that has max count submission*/
+OR
+counter in (SELECT counter FROM data
+GROUP BY counter
+HAVING count(counter)=1 ) /*filter out the submission count which is unique*/
+ORDER BY counter desc, id
+```
+[with keyword](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15) <br/>
+
+You did such a great job helping Julia with her last coding contest challenge that she wants you to work on this one, too!
+The total score of a hacker is the sum of their maximum scores for all of the challenges. Write a query to print the hacker_id, name, and total score of the hackers ordered by the descending score. If more than one hacker achieved the same total score, then sort the result by ascending hacker_id. Exclude all hackers with a total score of  from your result.
+
+#### Sample input
+
+![image](https://user-images.githubusercontent.com/58984578/121295879-60292880-c90d-11eb-95e4-94902f5a1c04.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121295892-64eddc80-c90d-11eb-8e78-c8775f1d5662.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121295933-7505bc00-c90d-11eb-998d-d9e77fc08e68.png)
+
+```
+SELECT h.hacker_id, h.name, SUM(score) FROM (
+    SELECT hacker_id, challenge_id, MAX(score) AS score FROM SUBMISSIONS
+    GROUP BY hacker_id, challenge_id)t 
+    
+JOIN Hackers h on t.hacker_id = h.hacker_id
+GROUP BY h.hacker_id, h.name
+HAVING SUM(score) > 0
+ORDER BY SUM(score) desc, h.hacker_id
+```
+
+![image](https://user-images.githubusercontent.com/58984578/121296457-5bb13f80-c90e-11eb-89bb-91d972142ab6.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121296495-69ff5b80-c90e-11eb-8eda-93d976fa44c7.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121296550-7e435880-c90e-11eb-9340-bec7caa4013f.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121296567-83a0a300-c90e-11eb-9e6f-306695e359b6.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121296596-8e5b3800-c90e-11eb-953d-2350bd4af587.png)
+
+```
+with A as
+(
+select c.contest_id, hacker_id, name, challenge_id
+from contests c 
+join colleges cd on c.contest_id=cd.contest_id
+join challenges ca on cd.college_id=ca.college_id
+)
+,B as
+(
+select A.contest_id, max(hacker_id) as h, max(name) as n, sum(isnull(total_submissions,0)) as ts, sum(isnull(total_accepted_submissions,0)) as tas
+from A
+left outer join submission_stats ss on A.challenge_id=ss.challenge_id
+group by A.contest_id
+)
+,C as
+(
+select A.contest_id, max(hacker_id) as h, max(name) as n, sum(isnull(total_views,0)) as tv, sum(isnull(total_unique_views,0)) as tuv
+from A
+left outer join view_stats vs on A.challenge_id=vs.challenge_id
+group by A.contest_id
+)
+select B.contest_id, B.h, B.n, ts,tas,tv,tuv
+from B join C
+on B.contest_id=C.contest_id
+where ts>0 or tas>0 or tv>0 or tuv>0
+order by B.contest_id
+```
+![image](https://user-images.githubusercontent.com/58984578/121299263-c2385c80-c912-11eb-9342-beeeb83a11d5.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121299310-d7ad8680-c912-11eb-93ca-084744485131.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121299323-dd0ad100-c912-11eb-9e17-11b57e26741d.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121299409-00358080-c913-11eb-8d85-35d8f97091f2.png)
+
+```
+with temp as (
+select submission_date,hacker_id,count(submission_id)c
+    from submissions a
+    group by submission_date,hacker_id
+),
+hacker as (
+select submission_date,hacker_id, c ,row_number()over (partition by submission_date order by c desc, hacker_id) rank
+    from temp
+),
+date as (
+select distinct submission_date, row_number()over(order by submission_date) rank from (select distinct submission_date from submissions)a 
+),
+rank as (
+select a.submission_date,rank,hacker_id,count(b.submission_date) c from date a
+left join temp b on a.submission_date >=b.submission_date  
+group by a.submission_date,rank,hacker_id
+having count(b.submission_date) =rank
+    )
+    
+select a.submission_date,count(a.hacker_id),b.hacker_id,name from rank a 
+left join hacker b on a.submission_date=b.submission_date and b.rank=1
+left join hackers c on b.hacker_id=c.hacker_id
+group by a.submission_date,b.hacker_id,name 
+order by 1
+```
+
+![image](https://user-images.githubusercontent.com/58984578/121303108-4c36f400-c918-11eb-96e2-613e184c2b62.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121303142-5a851000-c918-11eb-94b5-a0366b04a6e0.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121303190-6d97e000-c918-11eb-819d-b107d06ec556.png)
+
+```
+SELECT S.Name
+FROM Students S WITH (NOLOCK)
+INNER JOIN Friends F WITH (NOLOCK) ON S.ID = F.ID
+INNER JOIN Packages P WITH (NOLOCK) ON P.ID = S.ID
+INNER JOIN Packages PF WITH (NOLOCK) ON PF.ID = F.Friend_ID AND P.Salary < PF.Salary
+ORDER BY PF.Salary
+```
+ 
+[nolock](https://www.mssqltips.com/sqlservertip/2470/understanding-the-sql-server-nolock-hint/) <br/>
+[table hints](https://www.sqlshack.com/understanding-impact-clr-strict-security-configuration-setting-sql-server-2017/)
+
+![image](https://user-images.githubusercontent.com/58984578/121304393-e9def300-c919-11eb-91d0-af57829f51da.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121304428-f400f180-c919-11eb-90aa-540c95aaaa08.png)
+
+```
+SELECT f1.X, f1.Y FROM Functions f1
+INNER JOIN Functions f2 ON f1.X=f2.Y AND f1.Y=f2.X
+GROUP BY f1.X, f1.Y
+HAVING COUNT(f1.X)>1 or f1.X<f1.Y
+ORDER BY f1.X 
+```
+
+![image](https://user-images.githubusercontent.com/58984578/121306519-8f936180-c91c-11eb-8a61-d5ee2da84ff9.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121306548-9de17d80-c91c-11eb-9d79-99e5001d8431.png)
+
+![image](https://user-images.githubusercontent.com/58984578/121306586-a9cd3f80-c91c-11eb-8146-7c73298ec6a1.png)
+
+```
+WITH t AS (
+  SELECT Start_Date s
+        , End_Date e
+        , ROW_NUMBER() OVER(ORDER BY Start_Date) rn
+  FROM Projects
+  GROUP BY Start_Date, End_Date
+)
+    
+SELECT MIN(s),MAX(e)
+FROM t
+GROUP BY DATEDIFF(day,rn,s)
+ORDER BY COUNT(DATEDIFF(day,rn,s)), MIN(s)
+```
+
+P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+```
+* * * * * 
+* * * * 
+* * * 
+* * 
+*
+```
+Write a query to print the pattern P(20).
+
+```
+DECLARE @i INT = 20
+WHILE (@i > 0) 
+BEGIN
+   PRINT REPLICATE(' * ', @i) 
+   SET @i = @i - 1
+END
+
+* 
+* * 
+* * * 
+* * * * 
+* * * * *
+
+DECLARE @i INT = 1
+while (@i < 21)
+BEGIN
+    PRINT REPLICATE (' * ', @i )
+    SET @i = @i + 1
+END 
+    
+```
+[Replicate](https://docs.microsoft.com/en-us/sql/t-sql/functions/replicate-transact-sql?view=sql-server-ver15) <br/>
+[replicate example](https://www.w3schools.com/sql/func_sqlserver_replicate.asp)
+
