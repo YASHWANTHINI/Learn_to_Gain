@@ -1,0 +1,2 @@
+Applications that do not normally interact with the user are “daemonic” programs. They serve quietly and invisibly in the background without much need for human intervention. A typical daemonic program would be a process that checks the server every 15 minutes for new alarms or alerts. 
+Parasitic applications are continuously present but perform only supporting roles. For example, a parasite may monitor the amount of system resources 
