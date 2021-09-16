@@ -25,3 +25,5 @@ Deterministic functions always return the same result any time they are called w
 [Det vs non-det](https://docs.microsoft.com/en-us/sql/relational-databases/user-defined-functions/deterministic-and-nondeterministic-functions?view=sql-server-ver15)
 
 [System database](https://www.mssqltips.com/sql-server-tip-category/112/system-databases/)
+
+[Understanding how SQL Server stores data in data files](https://www.mssqltips.com/sqlservertip/4345/understanding-how-sql-server-stores-data-in-data-files/)
