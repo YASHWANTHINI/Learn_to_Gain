@@ -27,3 +27,7 @@ Deterministic functions always return the same result any time they are called w
 [System database](https://www.mssqltips.com/sql-server-tip-category/112/system-databases/)
 
 [Understanding how SQL Server stores data in data files](https://www.mssqltips.com/sqlservertip/4345/understanding-how-sql-server-stores-data-in-data-files/)
+
+![image](https://user-images.githubusercontent.com/58984578/133727430-837f4642-f32a-4ae6-8eb9-dc72b4af6a7e.png)
+
+[Designing storage for db](https://medium.com/geekculture/designing-storage-for-a-database-using-sql-server-bdc307f7dd06)
