@@ -7,3 +7,6 @@
 instead of datename use datepart
 
 ![image](https://user-images.githubusercontent.com/58984578/133928594-bd9d5f6b-2b58-4bad-a678-c78a311d7592.png)
+
+![image](https://user-images.githubusercontent.com/58984578/133929291-9dfa84a1-2fb9-496a-a7ee-9015af0ed8e4.png)
+
