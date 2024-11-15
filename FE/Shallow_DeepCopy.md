@@ -16,6 +16,7 @@ call stack
   | Identifier    | address | value |
 |----------|---------|-------------|
 | loc & data   | 003   | D301 |
+|-------------|---------|-----|
 Heap
   | address    | value | 
 |----------|---------|
