@@ -16,11 +16,14 @@ call stack
   | Identifier    | address | value |
 |----------|---------|-------------|
 | loc & data   | 003   | D301 |
-|-------------|---------|-----|
+
+
 Heap
+
   | address    | value | 
 |----------|---------|
 | D301   |  {address: {city: "usa"}} |
+
 This is shallow copy. it points to reference address of the object / arr which holds the structure and not element.
 Can be done using spread operator, Object.assign().
 ![image](https://github.com/user-attachments/assets/9f1058da-0344-4f7d-8756-a651f40a5337)
