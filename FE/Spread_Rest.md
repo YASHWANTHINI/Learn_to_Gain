@@ -1,6 +1,6 @@
 <h3>Spread</h3>
 used to combine properties of array, object and pass props, copy object and manage state.
- // Combining two arrays using spread operator
+ ```// Combining two arrays using spread operator
         const array1 = [1, 2, 3];
         const array2 = [4, 5, 6];
         const combinedArray = [...array1, ...array2]; // [1, 2, 3, 4, 5, 6]
@@ -16,6 +16,8 @@ used to combine properties of array, object and pass props, copy object and mana
         const updateState = () => {
           setState(prevState => ({ ...prevState, c: 3 }));
         };
+
+         
 Alternate to concat array and Object.assign to copy.
 
 Common mistakes
@@ -67,3 +69,16 @@ console.log(original.address.city); // Outputs: "London"
 Spread creates shallow copy of object or array. Spread operator cannot handle circular reference which means if an object contains properties that reference itself(directly or indirectly) 
 lead to error as it doent have built in logic to handle. 
 Deep cloning is computational expensive since process of creating new instances for all nested properties takes more tiem and memory.
+
+<h3>rest</h3>
+The rest operator collects multiple elements into a single array. It is used primarily in function parameters to handle variable numbers of arguments or during destructuring assignments.
+Use Cases:
+Collecting arguments in a function into an array.
+Destructuring remaining properties of an object or array.
+
+|Feature|	Spread Operator|	Rest Operator|
+|-------|--------------|--------------|
+|Purpose|	Expands elements|	Collects elements into an array|
+|Usage| Context	Function calls, array/object literals|	Function parameters, destructuring|
+|Example|	const newArr = [...oldArr]|	function example(...args) {}|
+
