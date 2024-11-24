@@ -4,7 +4,7 @@ MouseEvent	- Triggered by mouse interactions
 KeyboardEvent	 -Triggered by keyboard actions
 FormEvent	- Related to form submission and input changes
 FocusEvent	- Triggered when an element gains or loses focus
-`
+```
 import React, { useState, ChangeEvent } from 'react';
 
 export default function App() {
@@ -41,18 +41,23 @@ export default function App() {
         </form>
     );
 }
-`
+
+```
 
 From the above, onChange={(e)=> setState(e.target.value)} within the input tag is termed as inline handler.
 Inline event handler
 straightforward event handling without needing to define a separate function. So no reuse across component. readability is low when complex logic
-also for event we just said its e so that its automatically inferred by TS. 
+also for event we just said its e so that its automatically inferred by TS.
+```
 const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
     };
     return(
      <input type="text" value={inputValue} onChange={handleInputChange} />
      )
+
+```
+
 this is termed as named event handler. const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {} 
 Explicit annotated the type of event params. default is any.Can be reused across different components
 
