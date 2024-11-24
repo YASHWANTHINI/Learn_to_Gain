@@ -3,9 +3,8 @@ ChangeEvent - Triggered when the value of an input changes (<input>, <select>, o
 MouseEvent	- Triggered by mouse interactions
 KeyboardEvent	 -Triggered by keyboard actions
 FormEvent	- Related to form submission and input changes
-FocusEvent	- Triggered when an element gains or loses focus
-    
-```
+FocusEvent	- Triggered when an element gains or loses focus<br/> 
+
 import React, { useState, ChangeEvent } from 'react';
 
 export default function App() {
@@ -43,8 +42,7 @@ export default function App() {
     );
 }
 
-```
-
+<br/>
 From the above, onChange={(e)=> setState(e.target.value)} within the input tag is termed as inline handler.
 Inline event handler
 straightforward event handling without needing to define a separate function. So no reuse across component. readability is low when complex logic
