@@ -170,3 +170,5 @@ const MyComponent = ({ name, children }: { name: string; children?: ReactNode })
   );
 };
 
+<h3>Link</h3>
+https://www.perplexity.ai/search/how-to-return-props-from-child-CjKWpx5PSCSJn9Lyv9FnSg
