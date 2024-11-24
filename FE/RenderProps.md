@@ -1,3 +1,5 @@
+[Render props notes from perplexity](https://www.perplexity.ai/search/what-is-render-props-5XrZjC67T0epiSSPQIx5yg)
+
 Detailed Explanation of Render Props in Functional Components
 Render props is a powerful pattern in React that allows components to share code and state by passing a function as a prop. This function, referred to as a render prop, returns a React element and is called within the component to determine what to render. This approach enhances code reusability and flexibility, especially in functional components.
 Definition and Concept
