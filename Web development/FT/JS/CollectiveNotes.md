@@ -129,3 +129,133 @@ console.log(typeof([1, 2, 5])) //output, "object"
 console.log(typeof(() => 4+4)) //output, "function"
 console.log(typeof(/exp/)) //output, "object"
 ```
+** In Array and object destructuring we can use a spread operator or three dots to destructuring another array of elements in an array variable and another object properties in an object variable.
+
+<b>Object Destructuring</b>: We can destructure object properties in variable.The variable name and property name should be the same. We can destructure any properties in an object due to this, we should not maintain any order which property was first or last or any position (var names are mapped to the keys).
+In object destructuring, we should declare a variable with curly braces { }. In curly braces, we should write those properties that we want to destructure from an object. Then we should use the assignment operator = and on the right side, we use that object.
+
+```
+// object destructuring
+const person{
+    fName:'Yashwa',
+    mName:'Meena',
+    lName:'Rajeshwari'
+}
+let {fName,lName}=person; //variable name and property name should be the same so should not maintain any order which property was first or last or any position.
+
+
+cosnt {num1, ...other} = {num1:5, num2:10, num3: 56};
+console.log(num1, other) // output, 5, {num2:10, num3: 56}
+
+//creating object using destructures
+let fName = 'Yashwa';
+let mName = 'Meena';
+let lName = 'Rajeshwari';
+
+const personObj = {
+fName:fName,
+mName:mName,
+lName:lName
+} // key can have different name but value shuld be same as let var name. eg: firstName:fName
+
+console.log(personObj); // {fName:"Yashwa", mName:"Meena", lName:"Rajeshwari"}
+
+//Another way
+let fName = 'Yashwa';
+let mName = 'Meena';
+let lName = 'Rajeshwari';
+
+const personObj = {
+fName,
+mName,
+lName
+} // it first create key and then value to store accordingly.
+
+console.log(personObj); // {fName:"Yashwa", mName:"Meena", lName:"Rajeshwari"}
+const person = {
+  name: "Alice",
+  greet() {
+    console.log("Hello, my name is " + this.name);
+  }
+};
+
+person.greet(); // Hello, my name is Alice
+```
+#Object Methods
+
+```
+const updatedItem = {
+  categoryType: "NON-CONSUMABLE",
+  description: "CUSTOMER GIVEAWAY MUGS",
+  lastIssued: "Jul 2024",
+  lastReceived: "Jun 2025",
+  stockQty: 300,
+  unitPrice: 45,
+  unitOfMeasure: "PCS",
+  totalCost: 13500,
+  groupLabel: "Marketing Merchandise",
+  productCode: "MKTG0023",
+  variantId: "STD",
+  locationCode: "Chennai"
+};
+```
+| Method                          | Description                             |
+| ------------------------------- | --------------------------------------- |
+| `Object.keys(obj)`              | Returns array of property names (keys)  |
+| `Object.values(obj)`            | Returns array of property values        |
+| `Object.entries(obj)`           | Returns array of `[key, value]` pairs   |
+| `Object.assign(target, source)` | Copies properties from source to target |
+-----------------------------------------------------------------------------
+
+# Element Selection Methods
+- `document.getElementById(id)`: Selects a single element by its unique ID.
+- `document.getElementsByClassName(className)`: Selects all elements with a given class name.
+- `document.getElementsByTagName(tagName)`: Selects all elements with a given tag name.
+- `document.querySelector(selector)`: Selects the first element matching the CSS selector.
+- `document.querySelectorAll(selector)`: Selects all elements matching the CSS selector.
+
+```
+ document.querySelectorAll('h1').forEach(el => {
+  el.textContent = 'My New Text';
+});
+```
+
+# Element Creation and Modification Methods
+- `document.createElement(tagName)`: Creates a new element node.
+- `document.createTextNode(text)`: Creates a new text node.
+- `parentNode.appendChild(childNode)`: Adds a child node to a parent node.
+- `parentNode.insertBefore(newNode, referenceNode)`: Inserts a node before a reference node.
+- `node.removeChild(childNode)`: Removes a child node.
+- `element.setAttribute(name, value)`: Sets an attribute on an element.
+- `element.getAttribute(name)`: Gets an attribute's value.
+- `element.removeAttribute(name)`: Removes an attribute.
+```
+document.querySelector("h1").setAttribute('data-info','Custom Attr');
+document.querySelector("h1").getAttribute('data-info');
+document.querySelector("h1").removeAttribute('data-info');
+
+```
+
+# Content Manipulation
+- `element.innerHTML`: Gets/sets the HTML markup inside an element.
+- `element.textContent`: Gets/sets the text content inside an element.
+
+# Event Handling
+- `element.addEventListener(event, handler)`: Adds an event listener to an element.
+- `element.removeEventListener(event, handler)`: Removes an event listener.
+
+# Traversing the DOM Tree
+- `element.parentNode`: Accesses the parent node.
+- `element.childNodes`: Accesses child nodes.
+- `element.firstChild`: Accesses the first child node.
+- `element.lastChild`: Accesses the last child node.
+- `element.nextSibling`: Accesses the next sibling node.
+- `element.previousSibling`: Accesses the previous sibling node.
+
+# Other Useful Methods/Properties
+- `document.body`: Accesses the `<body>` element.
+- `document.head`: Accesses the `<head>` element.
+- `document.title`: Gets/sets the document's title.
+- `document.cookie`: Gets/sets browser cookies related to the document.
+- `document.createDocumentFragment()`: Creates a lightweight document fragment to optimize DOM insertion.
+
