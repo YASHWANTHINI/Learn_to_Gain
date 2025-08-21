@@ -1,3 +1,92 @@
+>> window - doc - elements
+# Element Selection Methods
+- `document.getElementById(id)`: Selects a single element by its unique ID.
+- `document.getElementsByClassName(className)`: Selects all elements with a given class name.
+- `document.getElementsByTagName(tagName)`: Selects all elements with a given tag name.
+- `document.querySelector(selector)`: Selects the first element matching the CSS selector.
+- `document.querySelectorAll(selector)`: Selects all elements matching the CSS selector.
+
+```
+ document.querySelectorAll('h1').forEach(el => {
+  el.textContent = 'My New Text';
+});
+```
+
+# Element Creation and Modification Methods
+- `document.createElement(tagName)`: Creates a new element node.
+- `document.createTextNode(text)`: Creates a new text node.
+- `parentNode.appendChild(childNode)`: Adds a child node to a parent node.
+- `parentNode.insertBefore(newNode, referenceNode)`: Inserts a node before a reference node.
+- `node.removeChild(childNode)`: Removes a child node.
+- `element.setAttribute(name, value)`: Sets an attribute on an element.
+- `element.getAttribute(name)`: Gets an attribute's value.
+- `element.removeAttribute(name)`: Removes an attribute.
+```
+document.querySelector("h1").setAttribute('data-info','Custom Attr');
+document.querySelector("h1").getAttribute('data-info');
+document.querySelector("h1").removeAttribute('data-info');
+
+```
+
+# Content Manipulation
+- `element.innerHTML`: Gets/sets the HTML markup inside an element.
+- `element.textContent`: Gets/sets the text content inside an element.
+
+# Event Handling
+- `element.addEventListener(event, handler)`: Adds an event listener to an element.
+- `element.removeEventListener(event, handler)`: Removes an event listener.
+
+# Traversing the DOM Tree
+- `element.parentNode`: Accesses the parent node.
+- `element.childNodes`: Accesses child nodes.
+- `element.firstChild`: Accesses the first child node.
+- `element.lastChild`: Accesses the last child node.
+- `element.nextSibling`: Accesses the next sibling node.
+- `element.previousSibling`: Accesses the previous sibling node.
+# Other Useful Methods/Properties
+- `document.body`: Accesses the `<body>` element.
+- `document.head`: Accesses the `<head>` element.
+- `document.title`: Gets/sets the document's title.
+- `document.cookie`: Gets/sets browser cookies related to the document.
+- `document.createDocumentFragment()`: Creates a lightweight document fragment to optimize DOM insertion.
+
+>> live col vs match
+
+>>hoisting, tdz, datatypes, obj - notation,spread, rest,methods
+>>pass by ref vs value, => , ==, ===
+
+```
+pass by value
+let a = 10;
+
+function modify(x) {
+  x = x + 5;
+}
+
+modify(a);
+console.log(a); // 10
+
+pass by ref
+let obj = { name: "Alice" };
+
+function modify(o) {
+  o.name = "Bob";
+}
+
+modify(obj);
+console.log(obj.name); // "Bob"
+
+let obj = { name: "Alice" };
+
+function modify(o) {
+  o = { name: "Charlie" };
+}
+
+modify(obj);
+console.log(obj.name); // "Alice"
+here 
+```
+
 #### Hoisting
 -> The JavaScript engine before parses the code before executing and during the parsing phase it shifts all the variable declaration to the top of the scope. This behavior of the JS engine is called hoisting.
 -> In terms of variables and constants, keyword var is hoisted and let and const does not allow hoisting.
@@ -207,55 +296,4 @@ const updatedItem = {
 | `Object.assign(target, source)` | Copies properties from source to target |
 -----------------------------------------------------------------------------
 
-# Element Selection Methods
-- `document.getElementById(id)`: Selects a single element by its unique ID.
-- `document.getElementsByClassName(className)`: Selects all elements with a given class name.
-- `document.getElementsByTagName(tagName)`: Selects all elements with a given tag name.
-- `document.querySelector(selector)`: Selects the first element matching the CSS selector.
-- `document.querySelectorAll(selector)`: Selects all elements matching the CSS selector.
-
-```
- document.querySelectorAll('h1').forEach(el => {
-  el.textContent = 'My New Text';
-});
-```
-
-# Element Creation and Modification Methods
-- `document.createElement(tagName)`: Creates a new element node.
-- `document.createTextNode(text)`: Creates a new text node.
-- `parentNode.appendChild(childNode)`: Adds a child node to a parent node.
-- `parentNode.insertBefore(newNode, referenceNode)`: Inserts a node before a reference node.
-- `node.removeChild(childNode)`: Removes a child node.
-- `element.setAttribute(name, value)`: Sets an attribute on an element.
-- `element.getAttribute(name)`: Gets an attribute's value.
-- `element.removeAttribute(name)`: Removes an attribute.
-```
-document.querySelector("h1").setAttribute('data-info','Custom Attr');
-document.querySelector("h1").getAttribute('data-info');
-document.querySelector("h1").removeAttribute('data-info');
-
-```
-
-# Content Manipulation
-- `element.innerHTML`: Gets/sets the HTML markup inside an element.
-- `element.textContent`: Gets/sets the text content inside an element.
-
-# Event Handling
-- `element.addEventListener(event, handler)`: Adds an event listener to an element.
-- `element.removeEventListener(event, handler)`: Removes an event listener.
-
-# Traversing the DOM Tree
-- `element.parentNode`: Accesses the parent node.
-- `element.childNodes`: Accesses child nodes.
-- `element.firstChild`: Accesses the first child node.
-- `element.lastChild`: Accesses the last child node.
-- `element.nextSibling`: Accesses the next sibling node.
-- `element.previousSibling`: Accesses the previous sibling node.
-
-# Other Useful Methods/Properties
-- `document.body`: Accesses the `<body>` element.
-- `document.head`: Accesses the `<head>` element.
-- `document.title`: Gets/sets the document's title.
-- `document.cookie`: Gets/sets browser cookies related to the document.
-- `document.createDocumentFragment()`: Creates a lightweight document fragment to optimize DOM insertion.
 
