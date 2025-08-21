@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Task Manager</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">Task Manager</h1>
+
+    <div>
+        <input type="text" id="taskName" placeholder="Task name" />
+        <select id="taskCategory">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Other">Other</option>
+        </select>
+        <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <hr>
+
+    <label>Filter by category:</label>
+    <select id="filterCategory">
+        <option value="All">All</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <ul id="taskList"></ul>
+    <!-- <label id="hints">Click to view Hints</label> -->
+
+    <script src="validation.js"></script>
+</body>
+
+</html>
