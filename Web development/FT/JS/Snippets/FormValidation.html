@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Full Form Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+    <form id="registrationForm">
+
+        <!-- Text Input -->
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" class="text-input" name="fullName" required>
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="email-input" name="email" required>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="password-input" name="password" required>
+        </div>
+
+        <!-- Number Input -->
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" class="number-input" name="age" min="0">
+        </div>
+
+        <!-- Date Input -->
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" class="date-input" name="dob">
+        </div>
+
+        <!-- Checkbox Input -->
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="terms" class="checkbox-input" name="terms">
+                I agree to the terms and conditions
+            </label>
+        </div>
+
+        <!-- Radio Inputs -->
+        <div class="form-group">
+            <label>Gender</label>
+            <label><input type="radio" name="gender" id="genderMale" class="radio-input" value="male"> Male</label>
+            <label><input type="radio" name="gender" id="genderFemale" class="radio-input" value="female">
+                Female</label>
+        </div>
+
+        <!-- File Input -->
+        <div class="form-group">
+            <label for="profilePic">Upload Profile Picture</label>
+            <input type="file" id="profilePic" class="file-input" name="profilePic">
+        </div>
+
+        <!-- Color Input -->
+        <div class="form-group">
+            <label for="favColor">Favorite Color</label>
+            <input type="color" id="favColor" class="color-input" name="favColor">
+        </div>
+
+        <!-- Range Input -->
+        <div class="form-group">
+            <label for="satisfaction">Satisfaction Level</label>
+            <input type="range" id="satisfaction" class="range-input" name="satisfaction" min="0" max="10">
+        </div>
+
+        <!-- URL Input -->
+        <div class="form-group">
+            <label for="website">Website</label>
+            <input type="url" id="website" class="url-input" name="website">
+        </div>
+
+        <!-- Telephone Input -->
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="tel-input" name="phone">
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label for="bio">Short Bio</label>
+            <textarea id="bio" class="textarea-input" name="bio" rows="4"></textarea>
+        </div>
+
+        <!-- Dependent Dropdowns -->
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" class="select-country" name="country">
+                <option value="">-- Select Country --</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="state">State</label>
+            <select id="state" class="select-state" name="state">
+                <option value="">-- Select State --</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" id="submitBtn" class="submit-button">Register</button>
+        </div>
+
+    </form>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+
+        // Regex patterns
+        const regexFullName = /^[a-zA-Z\s]+$/;
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regexPhone = /^\+?[\d\s\-]{7,15}$/;
+
+        form.fullName.addEventListener('blur', () => {
+            const val = form.fullName.value.trim();
+            if (!val) alert('Full Name is required.');
+            else if (!/^[a-zA-Z\s]+$/.test(val)) alert('Full Name can only contain letters and spaces.');
+        });
+
+        form.email.addEventListener('blur', () => {
+            const val = form.email.value.trim();
+            if (!val) alert('Email is required.');
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) alert('Email format is invalid.');
+        });
+
+        form.password.addEventListener('blur', () => {
+            const val = form.password.value;
+            if (!val) alert('Password is required.');
+            else if (val.length < 6) alert('Password must be at least 6 characters.');
+        });
+
+        form.age.addEventListener('blur', () => {
+            const val = form.age.value;
+            if (val) {
+                const num = Number(val);
+                if (isNaN(num) || num < 1 || num > 120) alert('Age must be between 1 and 120.');
+            }
+        });
+
+        form.dob.addEventListener('blur', () => {
+            if (!form.dob.value) alert('Date of Birth is required.');
+        });
+
+        form.terms.addEventListener('blur', () => {
+            if (!form.terms.checked) alert('You must agree to the terms and conditions.');
+        });
+
+        // For radios, validate on change or blur of each radio button
+        const genderRadios = form.querySelectorAll('input[name="gender"]');
+        genderRadios.forEach(radio => {
+            radio.addEventListener('blur', () => {
+                if (![...genderRadios].some(r => r.checked)) {
+                    alert('Please select your gender.');
+                }
+            });
+        });
+
+        form.profilePic.addEventListener('blur', () => {
+            const file = form.profilePic.files[0];
+            if (file) {
+                if (file.type !== 'image/png') alert('Profile picture must be a PNG file.');
+                else if (file.size < 10 * 1024) alert('Profile picture must be at least 10 KB.');
+            }
+        });
+
+        form.phone.addEventListener('blur', () => {
+            const val = form.phone.value.trim();
+            if (val && !/^\+?[\d\s\-]{7,15}$/.test(val)) alert('Phone number format is invalid.');
+        });
+
+        // Submit validation
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            // ...you can run all validations here again or just submit
+            alert('Form submitted!');
+        });
+
+    </script>
+
+
+</body>
+
+</html>
+
+<!-- 
+ Form Data Submitted:
+fullName: John Doe
+email: john@example.com
+password: secret123
+age: 25
+dob: 1998-12-01
+terms: on
+gender: male
+profilePic: File object
+favColor: #ff0000
+satisfaction: 8
+website: https://johndoe.dev
+phone: 1234567890
+search: some search
+bio: Just a guy who codes.
+country: india
+state: maharashtra
+-->
