@@ -1,3 +1,5 @@
+Event Propagation -  determines in which order the elements receive the event. There are two ways to handle this event propagation order of HTML DOM is Event Bubbling and Event Capturing.
+
 Reactions to the triggers. user ----> browser ---> events & event handler.
 
 ```
