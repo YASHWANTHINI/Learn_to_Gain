@@ -38,7 +38,8 @@ document.getElementById("cancelBtn").addEventListener("click", function (e) {
   alert("Cancel clicked");
 });
 
-##capturing
+## capturing
+```
 <div id="restricted-section">
   <button>Delete All Data</button>
 </div>
@@ -57,6 +58,7 @@ document.addEventListener(
   },
   true // <-- Capture phase!
 );
+```
 If your listener is attached during the capturing phase (with addEventListener(type, handler, true)), calling stopPropagation() will prevent the event from continuing down the DOM tree to the target.
 
 If your listener is attached during the bubbling phase (the default, with addEventListener(type, handler)), calling stopPropagation() will prevent the event from continuing up the DOM tree to ancestors.
