@@ -161,3 +161,23 @@ Queries → can be GET (when caching/bookmarking is useful).
 Mutations → always POST.
 
 In practice, most GraphQL clients default to POST for everything (simpler), unless you configure GET explicitly.
+
+Redux-Thunk
+
+Redux-Thunk is not built into Redux core.
+
+It’s a separate middleware that intercepts actions before they reach reducers.
+
+It lets you write action creators that return functions instead of plain objects.
+
+Inside those functions, you can perform async work (like fetch) and then dispatch new actions.
+
+🔹 Redux Toolkit (RTK)
+Nowadays, most projects use Redux Toolkit (RTK) — the official recommended way.
+
+RTK already includes redux-thunk by default 🎉
+
+You don’t have to install/configure it separately.
+
+If you configure your store with configureStore(), thunk is enabled automatically.
+
