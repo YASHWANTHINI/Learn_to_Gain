@@ -182,3 +182,16 @@ export default CoffeeShop;
 | **Setup**        | Very simple (just a hook, no extra libraries)                                        | Needs external package + boilerplate setup                                                              |
 | **Data Sharing** | Harder to share state across many components (need Context API)                      | Easy: single global store accessible anywhere                                                           |
 | **Use Case**     | Best for small/medium state in one place (e.g., form, counter, cart inside one page) | Best for **large apps** where state must sync across many pages (e.g., Zomato Cart, Auth, User Profile) |
+
+
+Example in Zomato 🛒:
+
+Cart lives in the Redux store.
+
+Home page can show "2 items in cart".
+
+Cart page can list the actual items.
+
+Checkout page can use the same data.
+
+👉 Without Redux, you’d have to keep passing cart state down through props → very messy in large apps.
